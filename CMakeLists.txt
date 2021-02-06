@@ -37,6 +37,8 @@ include_directories ( ${CMAKE_CURRENT_SOURCE_DIR}
 )
 add_executable(qml-lightdm-test
   sessionmodelplugin.h
+  usermanager_qml.cpp
+  usermanager_qml.h
   main.cpp
   main.qml
   Login.qml

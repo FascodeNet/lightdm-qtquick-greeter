@@ -9,6 +9,8 @@ ApplicationWindow {
     height: Screen.height
     visible: true
     title: qsTr("Hello World")
+
+    signal username_selected(string value);
     Component.onCompleted:{
         var component = Qt.createComponent(theme_path);
         var greeter_obj=component.createObject(greeter)
@@ -26,6 +28,7 @@ ApplicationWindow {
         var offsetY=getOffset(50,maxY,defaultY);
         greeter_obj.x=offsetX;
         greeter_obj.y=offsetY;
+
     }
 }
 
