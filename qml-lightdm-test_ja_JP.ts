@@ -9,6 +9,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="Login.qml" line="48"/>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="Login.qml" line="68"/>
         <source>Session</source>
         <translation type="unfinished"></translation>
@@ -22,6 +27,26 @@
         <location filename="Login.qml" line="96"/>
         <source></source>
         <translation></translation>
+    </message>
+    <message>
+        <location filename="Login.qml" line="119"/>
+        <source>Power Off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Login.qml" line="134"/>
+        <source>Restart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Login.qml" line="147"/>
+        <source>Sleep</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Login.qml" line="160"/>
+        <source>Hibernate</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

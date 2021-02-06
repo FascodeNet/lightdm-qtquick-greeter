@@ -45,7 +45,7 @@ GridView {
        width:themeView.width * 0.5
        text: ""
        hoverEnabled: true
-       placeholderText: "Password"
+       placeholderText: qsTr("Password")
        echoMode: TextInput.Password
        onAccepted: loginbutton_clicked(text);
        enabled: true
@@ -116,7 +116,7 @@ GridView {
            hoverEnabled: true
            ToolTip.timeout: 5000
            ToolTip.visible: hovered
-           ToolTip.text: "Power Off"
+           ToolTip.text: qsTr("Power Off")
 
        }
        Text{
@@ -131,7 +131,7 @@ GridView {
            hoverEnabled: true
            ToolTip.timeout: 5000
            ToolTip.visible: hovered
-           ToolTip.text: "Restart"
+           ToolTip.text: qsTr("Restart")
        }
        Text{
            width:powerflow.width / 16
@@ -144,7 +144,7 @@ GridView {
            hoverEnabled: true
            ToolTip.timeout: 5000
            ToolTip.visible: hovered
-           ToolTip.text: "Sleep"
+           ToolTip.text: qsTr("Sleep")
        }
        Text{
            width:powerflow.width / 16
@@ -157,7 +157,7 @@ GridView {
            hoverEnabled: true
            ToolTip.timeout: 5000
            ToolTip.visible: hovered
-           ToolTip.text: "Hibernate"
+           ToolTip.text: qsTr("Hibernate")
        }
    }
 
