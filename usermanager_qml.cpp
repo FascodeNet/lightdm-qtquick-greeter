@@ -80,3 +80,15 @@ void usermanager_qml::enable_password_text(){
     QObject* passwordkun=rootobj->findChild<QObject*>("passwordField_obj");
     passwordkun->setProperty("enabled",true);
 }
+void usermanager_qml::sleep(){
+    m_pwr.suspend();
+}
+void usermanager_qml::hibernate(){
+    m_pwr.hibernate();
+}
+void usermanager_qml::reboot(){
+    m_pwr.restart();
+}
+void usermanager_qml::poweroff(){
+    m_pwr.shutdown();
+}

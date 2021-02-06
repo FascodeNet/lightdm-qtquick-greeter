@@ -34,17 +34,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="134"/>
+        <location filename="Login.qml" line="137"/>
         <source>Restart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="147"/>
+        <location filename="Login.qml" line="153"/>
         <source>Sleep</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="160"/>
+        <location filename="Login.qml" line="169"/>
         <source>Hibernate</source>
         <translation type="unfinished"></translation>
     </message>

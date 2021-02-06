@@ -117,6 +117,9 @@ GridView {
            ToolTip.timeout: 5000
            ToolTip.visible: hovered
            ToolTip.text: qsTr("Power Off")
+           onClicked: {
+               shutdown();
+           }
 
        }
        Text{
@@ -132,6 +135,9 @@ GridView {
            ToolTip.timeout: 5000
            ToolTip.visible: hovered
            ToolTip.text: qsTr("Restart")
+           onClicked: {
+               reboot();
+           }
        }
        Text{
            width:powerflow.width / 16
@@ -145,6 +151,9 @@ GridView {
            ToolTip.timeout: 5000
            ToolTip.visible: hovered
            ToolTip.text: qsTr("Sleep")
+           onClicked: {
+               suspend();
+           }
        }
        Text{
            width:powerflow.width / 16
@@ -158,6 +167,9 @@ GridView {
            ToolTip.timeout: 5000
            ToolTip.visible: hovered
            ToolTip.text: qsTr("Hibernate")
+           onClicked: {
+               hibernate();
+           }
        }
    }
 

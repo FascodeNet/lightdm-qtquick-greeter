@@ -19,6 +19,10 @@ ApplicationWindow {
     signal enablebutton_clicked();
     signal disablebutton_clicked();
     signal logger(string value);
+    signal shutdown();
+    signal reboot();
+    signal hibernate();
+    signal suspend();
     Component.onCompleted:{
         var component = Qt.createComponent(theme_path);
         var greeter_obj=component.createObject(greeter)

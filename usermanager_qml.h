@@ -8,6 +8,7 @@
 #include <QLightDM/UsersModel>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QLightDM/Power>
 class usermanager_qml : public QObject
 {
     Q_OBJECT
@@ -21,6 +22,7 @@ private:
     QLightDM::SessionsModel* m_sessions;
     QString current_session;
     QString current_username;
+    QLightDM::PowerInterface m_pwr;
 signals:
     void changed_userimage(QString src);
 public slots:
@@ -33,6 +35,10 @@ public slots:
     void erasebutton_clicked();
     void disable_password_text();
     void enable_password_text();
+    void poweroff();
+    void reboot();
+    void hibernate();
+    void sleep();
 };
 
 #endif // USERMANAGER_QML_H

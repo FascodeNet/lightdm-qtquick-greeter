@@ -67,5 +67,9 @@ int main(int argc, char *argv[])
     QObject::connect(root,SIGNAL(logger(QString)),&qml_usermanager,SLOT(loggerkun(QString)));
     QObject::connect(root,SIGNAL(enablebutton_clicked()),&qml_usermanager,SLOT(enable_password_text()));
     QObject::connect(root,SIGNAL(disablebutton_clicked()),&qml_usermanager,SLOT(disable_password_text()));
+    QObject::connect(root,SIGNAL(shutdown()),&qml_usermanager,SLOT(poweroff()));
+    QObject::connect(root,SIGNAL(reboot()),&qml_usermanager,SLOT(reboot()));
+    QObject::connect(root,SIGNAL(hibernate()),&qml_usermanager,SLOT(hibernate()));
+    QObject::connect(root,SIGNAL(suspend()),&qml_usermanager,SLOT(sleep()));
     return app.exec();
 }
