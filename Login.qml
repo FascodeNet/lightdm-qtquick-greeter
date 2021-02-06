@@ -34,7 +34,9 @@ GridView {
     function erase_passwd(){
 
     }
-
+    /*onLayerChanged: {
+        passwordField.focus();
+    }*/
    TextField {
        id: passwordField
        objectName: "passwordField_obj"
@@ -100,7 +102,72 @@ GridView {
        styleColor: "#ff0000"
    }
 
+   Flow {
+       id: powerflow
+       x: 321
+       y: 402
+       width: 240
+       Button{
+
+           width:powerflow.width / 16 * 3
+           font.pixelSize: 20
+           icon.color: "transparent"
+           icon.source:"icons/power_settings_new-24px.svg"
+           hoverEnabled: true
+           ToolTip.timeout: 5000
+           ToolTip.visible: hovered
+           ToolTip.text: "Power Off"
+
+       }
+       Text{
+           width:powerflow.width / 16
+       }
+
+       Button{
+           width:powerflow.width / 16 * 3
+           font.pixelSize: 20
+           icon.color: "transparent"
+           icon.source:"icons/restart_alt-24px.svg"
+           hoverEnabled: true
+           ToolTip.timeout: 5000
+           ToolTip.visible: hovered
+           ToolTip.text: "Restart"
+       }
+       Text{
+           width:powerflow.width / 16
+       }
+       Button{
+           width:powerflow.width / 16 * 3
+           font.pixelSize: 20
+           icon.color: "transparent"
+           icon.source:"icons/mode_night-24px.svg"
+           hoverEnabled: true
+           ToolTip.timeout: 5000
+           ToolTip.visible: hovered
+           ToolTip.text: "Sleep"
+       }
+       Text{
+           width:powerflow.width / 16
+       }
+       Button{
+           width:powerflow.width / 16 * 3
+           font.pixelSize: 20
+           icon.color: "transparent"
+           icon.source:"icons/airline_seat_flat-24px.svg"
+           hoverEnabled: true
+           ToolTip.timeout: 5000
+           ToolTip.visible: hovered
+           ToolTip.text: "Hibernate"
+       }
+   }
+
 }
 
 
 
+
+/*##^##
+Designer {
+    D{i:0;formeditorZoom:0.6600000262260437}
+}
+##^##*/

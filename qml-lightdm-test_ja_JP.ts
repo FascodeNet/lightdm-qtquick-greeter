@@ -9,12 +9,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="66"/>
+        <location filename="Login.qml" line="68"/>
         <source>Session</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="74"/>
+        <location filename="Login.qml" line="76"/>
         <source>Login</source>
         <translation type="unfinished"></translation>
     </message>
