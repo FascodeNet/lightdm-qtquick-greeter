@@ -20,6 +20,7 @@ private:
     QQmlApplicationEngine* engine;
     QLightDM::SessionsModel* m_sessions;
     QString current_session;
+    QString current_username;
 signals:
     void changed_userimage(QString src);
 public slots:

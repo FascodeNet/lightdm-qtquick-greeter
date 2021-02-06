@@ -14,6 +14,7 @@ void usermanager_qml::changed_session_combo(QString index2){
     current_session=index2;
 }
 void usermanager_qml::changed_username_combo(QString index2){
+    current_username=index2;
     std::cout << index2.toStdString() << std::endl;
     if(m_greeter->inAuthentication()){
         m_greeter->cancelAuthentication();
@@ -41,5 +42,7 @@ void usermanager_qml::authenticationComplete(){
         //m_greeter->startSessionSync()
         std::cout << "tintn" << std::endl;
         m_greeter->startSessionSync(current_session);
+    }else{
+        changed_username_combo(current_username);
     }
 }
