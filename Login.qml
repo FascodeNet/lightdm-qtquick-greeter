@@ -8,10 +8,10 @@ GridView {
     height:450
     Image {
         id: usericonimage
-        x: 351
-        y: 127
-        width: 100
-        height: 100
+        x: 335
+        y: 97
+        width: 130
+        height: 130
         source: UserIconSrc
         fillMode: Image.PreserveAspectFit
     }
@@ -21,26 +21,56 @@ GridView {
        y: 233
        width:themeView.width * 0.5
        model:UserModels
-       onActivated: username_selected(currentValue)
+       onCurrentValueChanged: username_selected(currentValue)
    }
 
    Text {
        id: text1
        x: 379
-       y: 77
+       y: 61
        text: qsTr("User")
        font.pixelSize: 20
    }
 
    TextField {
-       id: textField
+       id: passwordField
        x: 201
        y: 292
        width:themeView.width * 0.5
        text: ""
        hoverEnabled: true
        placeholderText: "Password"
-       echoMode: TextInput.PasswordEchoOnEdit
+       echoMode: TextInput.Password
+       onAccepted: loginbutton_clicked(text);
+   }
+
+   ComboBox {
+       id: sessionComboBox
+       model:sessionModel
+       x: 13
+       y: 402
+       width:themeView.width * 0.3
+       onCurrentValueChanged: session_selected(currentValue);
+
+   }
+
+   Text {
+       id: text2
+       x: 97
+       y: 366
+       text: qsTr("Session")
+       font.pixelSize: 20
+   }
+
+   Button {
+       id: loginbutton
+       x: 692
+       y: 402
+       text: qsTr("Login")
+       font.pointSize: 14
+       onClicked: {
+           loginbutton_clicked(passwordField.text);
+       }
    }
 
 }

@@ -8,6 +8,16 @@
         <source>User</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="Login.qml" line="61"/>
+        <source>Session</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Login.qml" line="69"/>
+        <source>Login</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>main</name>

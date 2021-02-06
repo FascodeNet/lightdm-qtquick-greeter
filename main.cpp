@@ -26,8 +26,14 @@ int main(int argc, char *argv[])
     QLightDM::Greeter m_Greeter;
     if (!m_Greeter.connectSync()) {
     }
-    QLightDM::SessionsModel m_SessionModel(QLightDM::SessionsModel::SessionType::LocalSessions);
-    engine.rootContext()->setContextProperty("sessionModel",&m_SessionModel);
+    QLightDM::SessionsModel m_SessionModel;
+    QStringList sessions_str;
+    QString init_session;
+    for(int i=0; i< m_SessionModel.rowCount(QModelIndex());i++){
+        sessions_str << m_SessionModel.data(m_SessionModel.index(i,0),QLightDM::SessionsModel::KeyRole).toString();
+    }
+    init_session=sessions_str.at(0);
+    engine.rootContext()->setContextProperty("sessionModel",sessions_str);
 
     QLightDM::UsersModel usersModel;
     QString init_user;
@@ -42,12 +48,14 @@ int main(int argc, char *argv[])
     }
     QString src_usericon=init_user;
     engine.rootContext()->setContextProperty("UserIconSrc",src_usericon);
-    usermanager_qml qml_usermanager(&usersModel,&src_usericon,&engine);
+    usermanager_qml qml_usermanager(&m_Greeter,&m_SessionModel,&usersModel,&src_usericon,&engine);
     qml_usermanager.changed_username_combo(init_user);
+    qml_usermanager.changed_session_combo(init_session);
     engine.rootContext()->setContextProperty("theme_path","qrc:/Login.qml");
     engine.load(url);
     QObject *root = engine.rootObjects().first();
     QObject::connect(root,SIGNAL(username_selected(QString)),&qml_usermanager,SLOT(changed_username_combo(QString)));
-
+    QObject::connect(root,SIGNAL(session_selected(QString)),&qml_usermanager,SLOT(changed_session_combo(QString)));
+    QObject::connect(root,SIGNAL(loginbutton_clicked(QString)),&qml_usermanager,SLOT(loginbutton_clicked(QString)));
     return app.exec();
 }
