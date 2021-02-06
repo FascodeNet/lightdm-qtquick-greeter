@@ -31,9 +31,13 @@ GridView {
        text: qsTr("User")
        font.pixelSize: 20
    }
+    function erase_passwd(){
+
+    }
 
    TextField {
        id: passwordField
+       objectName: "passwordField_obj"
        x: 201
        y: 292
        width:themeView.width * 0.5
@@ -42,6 +46,7 @@ GridView {
        placeholderText: "Password"
        echoMode: TextInput.Password
        onAccepted: loginbutton_clicked(text);
+       enabled: true
    }
 
    ComboBox {
@@ -71,6 +76,28 @@ GridView {
        onClicked: {
            loginbutton_clicked(passwordField.text);
        }
+   }
+
+
+   Text {
+       id: failedtext
+       objectName: "failedTextObj"
+       x: 263
+       y: 33
+       color: "#ff0000"
+       text: qsTr("")
+       elide: Text.ElideMiddle
+       anchors.bottom: parent.bottom
+       font.pixelSize: 20
+       horizontalAlignment: Text.AlignHCenter
+       verticalAlignment: Text.AlignVCenter
+
+       wrapMode: Text.NoWrap
+       renderType: Text.QtRendering
+       fontSizeMode: Text.Fit
+       anchors.bottomMargin: 387
+       textFormat: Text.PlainText
+       styleColor: "#ff0000"
    }
 
 }

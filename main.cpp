@@ -57,5 +57,9 @@ int main(int argc, char *argv[])
     QObject::connect(root,SIGNAL(username_selected(QString)),&qml_usermanager,SLOT(changed_username_combo(QString)));
     QObject::connect(root,SIGNAL(session_selected(QString)),&qml_usermanager,SLOT(changed_session_combo(QString)));
     QObject::connect(root,SIGNAL(loginbutton_clicked(QString)),&qml_usermanager,SLOT(loginbutton_clicked(QString)));
+    QObject::connect(root,SIGNAL(erasebutton_clicked()),&qml_usermanager,SLOT(error_password()));
+    QObject::connect(root,SIGNAL(logger(QString)),&qml_usermanager,SLOT(loggerkun(QString)));
+    QObject::connect(root,SIGNAL(enablebutton_clicked()),&qml_usermanager,SLOT(enable_password_text()));
+    QObject::connect(root,SIGNAL(disablebutton_clicked()),&qml_usermanager,SLOT(disable_password_text()));
     return app.exec();
 }

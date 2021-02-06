@@ -9,14 +9,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="61"/>
+        <location filename="Login.qml" line="66"/>
         <source>Session</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="69"/>
+        <location filename="Login.qml" line="74"/>
         <source>Login</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Login.qml" line="96"/>
+        <source></source>
+        <translation></translation>
     </message>
 </context>
 <context>

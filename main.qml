@@ -13,6 +13,10 @@ ApplicationWindow {
     signal username_selected(string value);
     signal session_selected(string value);
     signal loginbutton_clicked(string value);
+    signal erasebutton_clicked();
+    signal enablebutton_clicked();
+    signal disablebutton_clicked();
+    signal logger(string value);
     Component.onCompleted:{
         var component = Qt.createComponent(theme_path);
         var greeter_obj=component.createObject(greeter)

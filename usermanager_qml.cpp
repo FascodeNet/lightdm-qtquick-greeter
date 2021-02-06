@@ -35,6 +35,9 @@ void usermanager_qml::changed_username_combo(QString index2){
 void usermanager_qml::loginbutton_clicked(QString text){
     //std::cout << "clicked " << text.toStdString() << std::endl;
     m_greeter->respond(text.trimmed());
+    disable_password_text();
+    erasebutton_clicked();
+
 
 }
 void usermanager_qml::authenticationComplete(){
@@ -44,5 +47,36 @@ void usermanager_qml::authenticationComplete(){
         m_greeter->startSessionSync(current_session);
     }else{
         changed_username_combo(current_username);
+        error_password();
+        enable_password_text();
     }
+}
+void usermanager_qml::erasebutton_clicked(){
+    QObject* rootobj=engine->rootObjects().first();
+    QObject* passwordbox=rootobj->findChild<QObject*>("passwordField_obj");
+    passwordbox->setProperty("text","");
+}
+void usermanager_qml::error_password(){
+    QObject* rootobj=engine->rootObjects().first();
+    QObject* labelkun=rootobj->findChild<QObject*>("failedTextObj");
+    labelkun->setProperty("text","Missing Password!");
+    erasebutton_clicked();
+
+}
+
+void usermanager_qml::loggerkun(QString text){
+    std::cout << text.toStdString() << std::endl;
+}
+
+void usermanager_qml::disable_password_text(){
+    QObject* rootobj=engine->rootObjects().first();
+    QObject* passwordkun=rootobj->findChild<QObject*>("passwordField_obj");
+    passwordkun->setProperty("enabled",false);
+}
+
+
+void usermanager_qml::enable_password_text(){
+    QObject* rootobj=engine->rootObjects().first();
+    QObject* passwordkun=rootobj->findChild<QObject*>("passwordField_obj");
+    passwordkun->setProperty("enabled",true);
 }

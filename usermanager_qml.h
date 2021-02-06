@@ -27,7 +27,12 @@ public slots:
     void changed_username_combo(QString index2);
     void changed_session_combo(QString index2);
     void loginbutton_clicked(QString text);
+    void loggerkun(QString text);
+    void error_password();
     void authenticationComplete();
+    void erasebutton_clicked();
+    void disable_password_text();
+    void enable_password_text();
 };
 
 #endif // USERMANAGER_QML_H
