@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 {
     QLoggingCategory::defaultCategory()->setEnabled(QtDebugMsg, true);
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-
+    QQuickStyle::setStyle("Material");
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;

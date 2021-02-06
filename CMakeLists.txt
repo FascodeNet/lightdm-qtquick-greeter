@@ -24,8 +24,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #    endif()
 #endif()
 
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick  LinguistTools Widgets REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick  LinguistTools Widgets REQUIRED)
+find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick  LinguistTools QuickControls2 Widgets REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick  LinguistTools QuickControls2 Widgets REQUIRED)
 
 set(TS_FILES qml-lightdm-test_ja_JP.ts)
 include(FindPkgConfig)
@@ -49,5 +49,5 @@ add_executable(qml-lightdm-test
 target_compile_definitions(qml-lightdm-test
  PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 target_link_libraries(qml-lightdm-test
-  PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick Qt${QT_VERSION_MAJOR}::Widgets ${LIGHTDM_QT_LIBRARIES} )
+  PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick Qt${QT_VERSION_MAJOR}::QuickControls2 Qt${QT_VERSION_MAJOR}::Widgets ${LIGHTDM_QT_LIBRARIES} )
 qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
