@@ -27,7 +27,7 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="main.qml" line="11"/>
+        <location filename="main.qml" line="13"/>
         <source>Hello World</source>
         <translation type="unfinished"></translation>
     </message>

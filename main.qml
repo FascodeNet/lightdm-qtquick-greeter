@@ -5,8 +5,10 @@ import QtQuick.Window 2.0
 ApplicationWindow {
 
     id:greeter
-    width: Screen.width
-    height: Screen.height
+    width: Screen_width
+    height: Screen_height
+    x:Screen_x
+    y:Screen_y
     visible: true
     title: qsTr("Hello World")
 
@@ -20,8 +22,8 @@ ApplicationWindow {
     Component.onCompleted:{
         var component = Qt.createComponent(theme_path);
         var greeter_obj=component.createObject(greeter)
-        var maxX=Screen.width - greeter_obj.width;
-        var maxY=Screen.height - greeter_obj.height;
+        var maxX=Screen_width - greeter_obj.width;
+        var maxY=Screen_height - greeter_obj.height;
         function getOffset(offsetpct,maxVal,defaultVal){
             var offset = defaultVal > maxVal ? maxVal : defaultVal;
             if(offsetpct > 100) offsetpct=100;

@@ -9,14 +9,20 @@
 #include <QLoggingCategory>
 #include "usermanager_qml.h"
 #include <iostream>
+#include <QApplication>
 int main(int argc, char *argv[])
 {
     QLoggingCategory::defaultCategory()->setEnabled(QtDebugMsg, true);
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QQuickStyle::setStyle("Material");
     QGuiApplication app(argc, argv);
-
+    QRect primary_rect=QGuiApplication::primaryScreen()->geometry();
     QQmlApplicationEngine engine;
+    engine.rootContext()->setContextProperty("Screen_width",primary_rect.width());
+    engine.rootContext()->setContextProperty("Screen_height",primary_rect.height());
+    engine.rootContext()->setContextProperty("Screen_x",primary_rect.x());
+    engine.rootContext()->setContextProperty("Screen_y",primary_rect.y());
+
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
