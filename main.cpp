@@ -21,7 +21,26 @@ int main(int argc, char *argv[])
 
     QCoreApplication::setApplicationName("Lightdm QML Greeter");
     QCoreApplication::setApplicationVersion("1.0");
+    //cmd parse
 
+    QCommandLineParser parser;
+    parser.setApplicationDescription("Lightdm QML Greeter");
+    parser.addHelpOption();
+    QCommandLineOption setting_option({"c","config"},"Greeter Config","qml file","/etc/lightdm-qtquick-greeter/settings.json");
+    parser.addOption(setting_option);
+    parser.process(app.arguments());
+    SettingsManager settingm;
+    if(QFile::exists(parser.value(setting_option))){
+        settingm.load(parser.value(setting_option));
+    }
+    QString qml_kun = settingm.theme_qml_path;
+    QString lang_path = settingm.qm_file.replace("%lang%",QLocale::system().name());
+    if(QFile::exists(lang_path)){
+        QTranslator qtTranslator;
+        std::cout << lang_path.toStdString() << std::endl;
+        qtTranslator.load(lang_path);
+        app.installTranslator(&qtTranslator);
+    }
     QRect primary_rect=QGuiApplication::primaryScreen()->geometry();
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("Screen_width",primary_rect.width());
@@ -47,16 +66,29 @@ int main(int argc, char *argv[])
     init_session=sessions_str.at(0);
     engine.rootContext()->setContextProperty("sessionModel",sessions_str);
 
+
+    bool hideuser=settingm.hideuser;
     QLightDM::UsersModel usersModel;
     QString init_user;
-    if (! m_Greeter.hideUsersHint()) {
-        QStringList knownUsers;
-        for (int i = 0; i < usersModel.rowCount(QModelIndex()); i++) {
-            knownUsers << usersModel.data(usersModel.index(i, 0), QLightDM::UsersModel::NameRole).toString();
+    if(hideuser == true){
+        if (! m_Greeter.hideUsersHint()) {
+            QStringList knownUsers;
+            for (int i = 0; i < usersModel.rowCount(QModelIndex()); i++) {
+                knownUsers << usersModel.data(usersModel.index(i, 0), QLightDM::UsersModel::NameRole).toString();
+            }
+            init_user = QString(knownUsers.at(0));
+            engine.rootContext()->setContextProperty("UserModels",knownUsers);
         }
-        init_user = QString(knownUsers.at(0));
-        engine.rootContext()->setContextProperty("UserModels",knownUsers);
+    }else{
 
+        if (! m_Greeter.hideUsersHint()) {
+            QStringList knownUsers;
+            for (int i = 0; i < usersModel.rowCount(QModelIndex()); i++) {
+                knownUsers << usersModel.data(usersModel.index(i, 0), QLightDM::UsersModel::NameRole).toString();
+            }
+            init_user = QString(knownUsers.at(0));
+            engine.rootContext()->setContextProperty("UserModels",knownUsers);
+        }
     }
     QString src_usericon=init_user;
     engine.rootContext()->setContextProperty("UserIconSrc",src_usericon);
@@ -66,19 +98,6 @@ int main(int argc, char *argv[])
 
 
 
-    //cmd parse
-
-    QCommandLineParser parser;
-    parser.setApplicationDescription("Lightdm QML Greeter");
-    parser.addHelpOption();
-    QCommandLineOption setting_option({"c","config"},"Greeter Config","qml file","/etc/lightdm-qtquick-greeter/settings.json");
-    parser.addOption(setting_option);
-    parser.process(app.arguments());
-    SettingsManager settingm;
-    if(QFile::exists(parser.value(setting_option))){
-        settingm.load(parser.value(setting_option));
-    }
-    QString qml_kun = settingm.theme_qml_path;
     /*if(qml_kun != "qrc:/Login.qml"){
         char* realpathkun=new char[1024];
         realpath(qml_kun.toUtf8().data(),realpathkun);

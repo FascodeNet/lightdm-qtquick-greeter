@@ -13,6 +13,8 @@ public:
     explicit SettingsManager(QObject *parent = nullptr);
     QString background_path="";
     QString theme_qml_path = "qrc:/Login.qml";
+    QString qm_file="";
+    bool hideuser=false;
     void load(QString filename);
 signals:
 

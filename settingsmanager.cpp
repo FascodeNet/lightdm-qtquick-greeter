@@ -14,4 +14,8 @@ void SettingsManager::load(QString filename){
     QJsonObject jsonObj(jsondoc.object());
     background_path=jsonObj["background_path"].toString();
     theme_qml_path=jsonObj["theme"].toString();
+    qm_file = jsonObj["qm_file"].toString();
+    if(jsonObj["hideuser"].toString() == "true"){
+        hideuser = true;
+    }
 }

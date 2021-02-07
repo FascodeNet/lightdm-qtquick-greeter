@@ -35,19 +35,23 @@ include_directories ( ${CMAKE_CURRENT_SOURCE_DIR}
                       ${CMAKE_CURRENT_BINARY_DIR}
                       ${LIGHTDM_QT_INCLUDE_DIRS}
 )
+set(SOURCESKUN
+    sessionmodelplugin.h
+    usermanager_qml.cpp
+    usermanager_qml.h
+    main.cpp
+    settingsmanager.cpp
+    settingsmanager.h
+    main.qml
+    Login.qml)
 add_executable(qml-lightdm-test
-  sessionmodelplugin.h
-  usermanager_qml.cpp
-  usermanager_qml.h
-  main.cpp
-  settingsmanager.cpp
-  settingsmanager.h
-  main.qml
-  Login.qml
+  ${SOURCESKUN}
   qml.qrc
   ${TS_FILES}
 )
 
+qt5_create_translation(_qmFiles ${SOURCESKUN} ${TS_FILES})
+qt5_add_translation(_qmFiles ${TS_FILES})
 target_compile_definitions(qml-lightdm-test
  PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 target_link_libraries(qml-lightdm-test
