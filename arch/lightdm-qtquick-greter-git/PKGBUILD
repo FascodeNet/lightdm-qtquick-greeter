@@ -9,7 +9,7 @@ arch=('x86_64' "i686")
 url="https://github.com/FascodeNet/lightdm-qtquick-greeter"
 license=('custom')
 depends=("liblightdm-qt5")
-makedepends=("git")
+makedepends=("git" "ninja")
 backup=("etc/lightdm/lightdm-qtquick-greeter.json")
 source=("git+${url}.git")
 sha256sums=('SKIP')
@@ -22,12 +22,10 @@ pkgver() {
 build(){
     cd "${srcdir}/${_reponame}"
     cmake -GNinja
-    ninja
+    ninja -j4
 }
 
 package() {
     cd "${srcdir}/${_reponame}"
-    install -m 755 -D "src/lightdm-qtquick-greeter" "${pkgdir}/usr/bin/lightdm-qtquick-greeter"
-    install -m 755 -D "misc/lightdm-qtquick-greeter.desktop" "${pkgdir}/usr/share/xgreeters/lightdm-qtquick-greeter.desktop"
-    install -m 755 -D "misc/lightdm-qtquick-greeter.json"  "${pkgdir}/etc/lightdm/lightdm-qtquick-greeter.json"
+    DESTDIR="${pkgdir}" ninja install
 }
