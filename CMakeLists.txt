@@ -1,3 +1,3 @@
 cmake_minimum_required(VERSION 3.14)
-project(qml-lightdm-test LANGUAGES CXX)
+project(lightdm-qtquick-greeter LANGUAGES CXX)
 add_subdirectory(src)

@@ -1,6 +1,3 @@
-cmake_minimum_required(VERSION 3.14)
-
-project(qml-lightdm-test LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -27,7 +24,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick  LinguistTools QuickControls2 Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick  LinguistTools QuickControls2 Widgets REQUIRED)
 
-set(TS_FILES qml-lightdm-test_ja_JP.ts)
+set(TS_FILES lightdm-qtquick-greeter_ja_JP.ts)
 include(FindPkgConfig)
 pkg_check_modules(LIGHTDM_QT liblightdm-qt5-3)
 
@@ -44,7 +41,7 @@ set(SOURCESKUN
     settingsmanager.h
     main.qml
     Login.qml)
-add_executable(qml-lightdm-test
+add_executable(lightdm-qtquick-greeter
   ${SOURCESKUN}
   qml.qrc
   ${TS_FILES}
@@ -52,8 +49,8 @@ add_executable(qml-lightdm-test
 
 qt5_create_translation(_qmFiles ${SOURCESKUN} ${TS_FILES})
 qt5_add_translation(_qmFiles ${TS_FILES})
-target_compile_definitions(qml-lightdm-test
+target_compile_definitions(lightdm-qtquick-greeter
  PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
-target_link_libraries(qml-lightdm-test
+target_link_libraries(lightdm-qtquick-greeter
   PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick Qt${QT_VERSION_MAJOR}::QuickControls2 Qt${QT_VERSION_MAJOR}::Widgets ${LIGHTDM_QT_LIBRARIES} )
 qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
