@@ -1,3 +1,5 @@
-./pkg/
-./src/
-./lightdm-qtquick-greeter/
+pkg/
+src/
+lightdm-qtquick-greeter/
+*.pkg.tar.*
+

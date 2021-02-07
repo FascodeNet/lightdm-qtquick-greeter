@@ -2,7 +2,7 @@
 
 _reponame="lightdm-qtquick-greeter"
 pkgname="${_reponame}-git"
-pkgver=r17.51e0033
+pkgver=r18.d1c29b1
 pkgrel=1
 pkgdesc="New Greeter for LightDM written in Qt"
 arch=('x86_64' "i686")
