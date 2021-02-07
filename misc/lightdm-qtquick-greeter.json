@@ -1,0 +1,4 @@
+{ 
+    "background_path":"file://hoge/fuga.png",
+    "theme":"qrc:/Login.qml"
+}
