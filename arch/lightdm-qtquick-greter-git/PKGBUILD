@@ -21,11 +21,13 @@ pkgver() {
 
 build(){
     cd "${srcdir}/${_reponame}"
-    cmake -GNinja
+    mkdir build
+    cd build
+    cmake -GNinja ..
     ninja -j4
 }
 
 package() {
-    cd "${srcdir}/${_reponame}"
+    cd "${srcdir}/${_reponame}/build"
     DESTDIR="${pkgdir}" ninja install
 }
