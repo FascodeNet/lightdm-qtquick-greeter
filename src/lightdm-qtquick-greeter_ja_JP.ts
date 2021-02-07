@@ -6,47 +6,52 @@
     <message>
         <location filename="Login.qml" line="31"/>
         <source>User</source>
-        <translation>ユーザー</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Login.qml" line="51"/>
         <source>Password</source>
-        <translation>パスワード</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Login.qml" line="71"/>
         <source>Session</source>
-        <translation>セッション</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Login.qml" line="81"/>
         <source>Login</source>
-        <translation>ログイン</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="96"/>
+        <location filename="Login.qml" line="95"/>
         <source></source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Login.qml" line="95"/>
+        <source></source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Login.qml" line="124"/>
         <source>Power Off</source>
-        <translation>シャットダウン</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Login.qml" line="142"/>
         <source>Restart</source>
-        <translation>再起動</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Login.qml" line="158"/>
         <source>Sleep</source>
-        <translation>スリープ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Login.qml" line="174"/>
         <source>Hibernate</source>
-        <translation>休止</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -54,7 +59,7 @@
     <message>
         <location filename="main.qml" line="13"/>
         <source>Hello World</source>
-        <translation>ハロー・ワールド()</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
