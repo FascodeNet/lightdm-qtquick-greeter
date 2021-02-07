@@ -98,3 +98,12 @@ void usermanager_qml::set_background(QString src){
     QObject* backgroundkun=rootobj->findChild<QObject*>("background_obj");
     backgroundkun->setProperty("source",src);
 }
+void usermanager_qml::cursor_move_center(QVariant x,QVariant y){
+    std::cout << "x: " << x.toInt() << " y: " << y.toInt() << std::endl;
+
+    //cursor process
+    QProcess cursor_process;
+    QStringList args_cursor;
+    args_cursor << "mousemove" << QString::number(x.toInt()) << QString::number(y.toInt());
+    cursor_process.startDetached("xdotool",args_cursor);
+}

@@ -120,6 +120,8 @@ int main(int argc, char *argv[])
     QObject::connect(root,SIGNAL(hibernate()),&qml_usermanager,SLOT(hibernate()));
     QObject::connect(root,SIGNAL(suspend()),&qml_usermanager,SLOT(sleep()));
     QObject::connect(root,SIGNAL(set_background(QString)),&qml_usermanager,SLOT(set_background(QString)));
+    qml_usermanager.cursor_move_center(primary_rect.x() + primary_rect.width() / 2,primary_rect.y() +  primary_rect.height() / 2);
     qml_usermanager.set_background(settingm.background_path);
+
     return app.exec();
 }

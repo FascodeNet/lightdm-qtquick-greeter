@@ -24,6 +24,7 @@ ApplicationWindow {
     signal hibernate();
     signal suspend();
     signal set_background(string value);
+    signal cursor_move_center(var width,var height);
     Image {
         id: backgroundkun
         objectName: "background_obj"
@@ -45,6 +46,7 @@ ApplicationWindow {
         var offsetY=getOffset(50,maxY,defaultY);
         greeter_obj.x=offsetX;
         greeter_obj.y=offsetY;
+        cursor_move_center(Screen_width,Screen_height);
 
     }
 }

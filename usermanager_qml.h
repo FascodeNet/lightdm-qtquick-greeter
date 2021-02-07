@@ -9,6 +9,8 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QLightDM/Power>
+#include <QProcess>
+#include <QString>
 class usermanager_qml : public QObject
 {
     Q_OBJECT
@@ -40,6 +42,7 @@ public slots:
     void hibernate();
     void sleep();
     void set_background(QString src);
+    void cursor_move_center(QVariant x,QVariant y);
 };
 
 #endif // USERMANAGER_QML_H
