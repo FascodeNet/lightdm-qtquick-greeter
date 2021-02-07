@@ -1,5 +1,6 @@
 [Desktop Entry]
-Name=LightDM custom Greeter qml-lightdm-test
-Comment=LightDM Greeter
-Exec=/usr/bin/qml-lightdm-test
+Name=LightDM QML Greeter
+Comment=This is QtQuick Greeter
+Exec=lightdm-qtquick-greeter
 Type=Application
+X-Ubuntu-Gettext-Domain=lightdm
