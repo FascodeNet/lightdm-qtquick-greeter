@@ -10,6 +10,7 @@ url="https://github.com/FascodeNet/lightdm-qtquick-greeter"
 license=('custom')
 depends=("liblightdm-qt5")
 makedepends=("git")
+backup=("etc/lightdm/lightdm-qtquick-greeter.json")
 source=("git+${url}.git")
 sha256sums=('SKIP')
 

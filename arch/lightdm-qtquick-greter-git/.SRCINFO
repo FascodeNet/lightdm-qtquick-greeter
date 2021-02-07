@@ -8,6 +8,7 @@ pkgbase = lightdm-qtquick-greeter-git
 	license = custom
 	makedepends = git
 	depends = liblightdm-qt5
+	backup = etc/lightdm/lightdm-qtquick-greeter.json
 	source = git+https://github.com/FascodeNet/lightdm-qtquick-greeter.git
 	sha256sums = SKIP
 
