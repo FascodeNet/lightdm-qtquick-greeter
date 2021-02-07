@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=LightDM QML Greeter
+Comment=This is QtQuick Greeter
+Exec=lightdm-qtquick-greeter
+Type=Application
+X-Ubuntu-Gettext-Domain=lightdm
