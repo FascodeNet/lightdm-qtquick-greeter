@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     QCommandLineParser parser;
     parser.setApplicationDescription("Lightdm QML Greeter");
     parser.addHelpOption();
-    QCommandLineOption setting_option({"c","config"},"Greeter Config","qml file","/etc/lightdm/lightdm-qtquick-greeter.conf");
+    QCommandLineOption setting_option({"c","config"},"Greeter Config","qml file","/etc/lightdm/lightdm-qtquick-greeter.json");
     parser.addOption(setting_option);
     parser.process(app.arguments());
     SettingsManager settingm;
