@@ -40,6 +40,8 @@ add_executable(qml-lightdm-test
   usermanager_qml.cpp
   usermanager_qml.h
   main.cpp
+  settingsmanager.cpp
+  settingsmanager.h
   main.qml
   Login.qml
   qml.qrc

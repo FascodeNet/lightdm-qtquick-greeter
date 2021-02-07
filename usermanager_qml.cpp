@@ -92,3 +92,9 @@ void usermanager_qml::reboot(){
 void usermanager_qml::poweroff(){
     m_pwr.shutdown();
 }
+void usermanager_qml::set_background(QString src){
+
+    QObject* rootobj=engine->rootObjects().first();
+    QObject* backgroundkun=rootobj->findChild<QObject*>("background_obj");
+    backgroundkun->setProperty("source",src);
+}

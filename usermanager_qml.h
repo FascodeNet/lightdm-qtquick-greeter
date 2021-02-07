@@ -39,6 +39,7 @@ public slots:
     void reboot();
     void hibernate();
     void sleep();
+    void set_background(QString src);
 };
 
 #endif // USERMANAGER_QML_H

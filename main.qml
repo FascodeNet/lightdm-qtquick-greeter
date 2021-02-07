@@ -23,6 +23,11 @@ ApplicationWindow {
     signal reboot();
     signal hibernate();
     signal suspend();
+    signal set_background(string value);
+    Image {
+        id: backgroundkun
+        objectName: "background_obj"
+    }
     Component.onCompleted:{
         var component = Qt.createComponent(theme_path);
         var greeter_obj=component.createObject(greeter)
