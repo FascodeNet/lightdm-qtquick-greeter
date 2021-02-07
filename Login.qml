@@ -30,6 +30,8 @@ GridView {
        y: 61
        text: qsTr("User")
        font.pixelSize: 20
+       style: Text.Outline
+       styleColor: "#ffffff"
    }
     function erase_passwd(){
 
@@ -37,6 +39,7 @@ GridView {
     /*onLayerChanged: {
         passwordField.focus();
     }*/
+
    TextField {
        id: passwordField
        objectName: "passwordField_obj"
@@ -67,6 +70,8 @@ GridView {
        y: 366
        text: qsTr("Session")
        font.pixelSize: 20
+       styleColor: "#ffffff"
+       style:Text.Outline;
    }
 
    Button {

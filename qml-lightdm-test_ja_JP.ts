@@ -9,17 +9,17 @@
         <translation>ユーザー</translation>
     </message>
     <message>
-        <location filename="Login.qml" line="48"/>
+        <location filename="Login.qml" line="51"/>
         <source>Password</source>
         <translation>パスワード</translation>
     </message>
     <message>
-        <location filename="Login.qml" line="68"/>
+        <location filename="Login.qml" line="71"/>
         <source>Session</source>
         <translation>セッション</translation>
     </message>
     <message>
-        <location filename="Login.qml" line="76"/>
+        <location filename="Login.qml" line="81"/>
         <source>Login</source>
         <translation>ログイン</translation>
     </message>
@@ -29,22 +29,22 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="119"/>
+        <location filename="Login.qml" line="124"/>
         <source>Power Off</source>
         <translation>シャットダウン</translation>
     </message>
     <message>
-        <location filename="Login.qml" line="137"/>
+        <location filename="Login.qml" line="142"/>
         <source>Restart</source>
         <translation>再起動</translation>
     </message>
     <message>
-        <location filename="Login.qml" line="153"/>
+        <location filename="Login.qml" line="158"/>
         <source>Sleep</source>
         <translation>スリープ</translation>
     </message>
     <message>
-        <location filename="Login.qml" line="169"/>
+        <location filename="Login.qml" line="174"/>
         <source>Hibernate</source>
         <translation>休止</translation>
     </message>
