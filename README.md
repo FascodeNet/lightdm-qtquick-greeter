@@ -24,13 +24,13 @@ Install folllowing packages
 ## Build and Install
 
 ```bash
-git clomnehttps://github.com/FascodeNet/lightdm-qtquick-greeter.git
+git clone https://github.com/FascodeNet/lightdm-qtquick-greeter.git
 cd lightdm-qtquick-greeter
 mkdir build
 cd build
 cmake -GNinja ..
 ninja -j4
-ninja install
+sudo ninja install
 ```
 ## Set up Lightdm
 Follow [the instructions on ArchWiki](https://wiki.archlinux.org/index.php/LightDM#Greeter) to specify Greeter.
