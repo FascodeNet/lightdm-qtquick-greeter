@@ -8,27 +8,30 @@ GridView {
     height:450
     Image {
         id: usericonimage
-        x: 335
-        y: 97
-        width: 130
-        height: 130
+        x: 208
+        y: 165
+        width: 70
+        height: 70
         source: UserIconSrc
         fillMode: Image.PreserveAspectFit
     }
    ComboBox {
        id: usercomboBox
-       x: 201
-       y: 233
-       width:themeView.width * 0.5
+       x: 552
+       y: 165
+       width: 40
+       height: 70
        model:UserModels
        onCurrentValueChanged: username_selected(currentValue)
    }
 
    Text {
        id: text1
-       x: 379
-       y: 61
-       text: qsTr("User")
+       x: 284
+       y: 165
+       width: 262
+       height: 35
+       text: qsTr("UserName")
        font.pixelSize: 20
        style: Text.Outline
        styleColor: "#ffffff"
@@ -44,7 +47,7 @@ GridView {
        id: passwordField
        objectName: "passwordField_obj"
        x: 201
-       y: 292
+       y: 251
        width:themeView.width * 0.5
        text: ""
        hoverEnabled: true
@@ -76,8 +79,10 @@ GridView {
 
    Button {
        id: loginbutton
-       x: 692
-       y: 402
+       x: 201
+       y: 297
+       width: 400
+       height: 40
        text: qsTr("Login")
        font.pointSize: 14
        onClicked: {
@@ -86,32 +91,12 @@ GridView {
    }
 
 
-   Text {
-       id: failedtext
-       objectName: "failedTextObj"
-       x: 263
-       y: 33
-       color: "#ff0000"
-       text: qsTr("")
-       elide: Text.ElideMiddle
-       anchors.bottom: parent.bottom
-       font.pixelSize: 20
-       horizontalAlignment: Text.AlignHCenter
-       verticalAlignment: Text.AlignVCenter
-
-       wrapMode: Text.NoWrap
-       renderType: Text.QtRendering
-       fontSizeMode: Text.Fit
-       anchors.bottomMargin: 387
-       textFormat: Text.PlainText
-       styleColor: "#ff0000"
-   }
-
    Flow {
        id: powerflow
-       x: 321
-       y: 402
+       x: 552
+       y: 403
        width: 240
+       height: 40
        Button{
 
            width:powerflow.width / 16 * 3
@@ -178,13 +163,33 @@ GridView {
        }
    }
 
+   Text {
+       id: text3
+       x: 284
+       y: 200
+       width: 262
+       height: 35
+       text: qsTr("サブテキスト")
+       font.pixelSize: 20
+       styleColor: "#ffffff"
+       style: Text.Outline
+   }
+
+   Image {
+       id: usericonimage1
+       x: 245
+       y: 20
+       width: 312
+       height: 80
+       source: UserIconSrc
+       fillMode: Image.PreserveAspectFit
+   }
+
 }
 
 
 
 
-/*##^##
-Designer {
-    D{i:0;formeditorZoom:0.6600000262260437}
-}
-##^##*/
+
+
+
