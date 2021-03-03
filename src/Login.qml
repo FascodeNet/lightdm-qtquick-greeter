@@ -31,7 +31,7 @@ GridView {
        y: 165
        width: 262
        height: 35
-       text: qsTr("UserName")
+       text: UserName
        font.pixelSize: 20
        style: Text.Outline
        styleColor: "#ffffff"
