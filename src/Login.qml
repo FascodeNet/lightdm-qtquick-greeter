@@ -29,8 +29,10 @@ GridView {
         y: 123
         width: 324
         height: 204
-        source: "qrc:/qtquickplugin/images/template_image.png"
-        fillMode: Image.PreserveAspectFit
+        horizontalAlignment: Image.AlignLeft
+        source: "icons/名称未asasasassasasas設定.png"
+        sourceSize.width: 324
+        fillMode: Image.Stretch
 
         Rectangle {
             id: rectangle
@@ -396,8 +398,4 @@ GridView {
 
 
 
-/*##^##
-Designer {
-    D{i:0;formeditorZoom:1.1}
-}
-##^##*/
+
