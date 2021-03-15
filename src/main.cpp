@@ -92,6 +92,7 @@ int main(int argc, char *argv[])
     }
     QString src_usericon=init_user;
     engine.rootContext()->setContextProperty("UserIconSrc",src_usericon);
+    engine.rootContext()->setContextProperty("UserName",init_user);
     usermanager_qml qml_usermanager(&m_Greeter,&m_SessionModel,&usersModel,&src_usericon,&engine);
     qml_usermanager.changed_username_combo(init_user);
     qml_usermanager.changed_session_combo(init_session);

@@ -29,6 +29,7 @@ void usermanager_qml::changed_username_combo(QString index2){
             std::cout << image.toString().toStdString() << std::endl;
             //changed_userimage("file://" + image.toString());
             engine->rootContext()->setContextProperty("UserIconSrc",QVariant("file://" + image.toString()));
+            engine->rootContext()->setContextProperty("UserName",index2);
         }
     }
 }
