@@ -9,10 +9,19 @@ GridView {
     function erase_passwd(){
 
     }
+    function change_clock(){
+        date_text.text=new Date().toLocaleDateString(Qt.locale(),"yyyy/MM/dd");
+        clock_text.text=new Date().toLocaleTimeString(Qt.locale(),"hh:mm");
+    }
+
     /*onLayerChanged: {
         passwordField.focus();
     }*/
 
+    Timer {
+        interval: 100; running: true; repeat: true;
+        onTriggered: change_clock();
+    }
 
     BorderImage {
         id: borderImage
@@ -28,7 +37,7 @@ GridView {
         x: 238
         y: 123
         width: 324
-        height: 204
+        height: 254
         horizontalAlignment: Image.AlignLeft
         source: "icons/名称未asasasassasasas設定.png"
         sourceSize.width: 324
@@ -39,14 +48,14 @@ GridView {
             x: 2
             y: 2
             width: 320
-            height: 200
+            height: 250
             color: "#ffffff"
             radius: 15
 
             Text {
                 id: text6
-                x: 75
-                y: 174
+                x: 81
+                y: 206
                 width: 170
                 height: 18
                 color: "#8b0000"
@@ -72,7 +81,7 @@ GridView {
                 id: sessionComboBox
                 model:sessionModel
                 x: 104
-                y: 58
+                y: 85
                 width: 196
                 height: 29
                 onCurrentValueChanged: session_selected(currentValue);
@@ -90,7 +99,7 @@ GridView {
                 Text {
                     id: text2
                     x: 0
-                    y: 0
+                    y: -31
                     width: 150
                     height: 29
                     text: qsTr("Session")
@@ -105,7 +114,7 @@ GridView {
             ComboBox {
                 id: usercomboBox
                 x: 104
-                y: 32
+                y: 23
                 width: 196
                 height: 29
                 model:UserModels
@@ -124,8 +133,8 @@ GridView {
                 Text {
                     id: text1
                     x: 0
-                    y: 0
-                    width: 150
+                    y: -27
+                    width: 90
                     height: 29
                     text: qsTr("UserName")
                     font.pixelSize: 17
@@ -140,7 +149,7 @@ GridView {
                 id: passwordField
                 objectName: "passwordField_obj"
                 x: 20
-                y: 96
+                y: 120
                 width: 280
                 height: 40
                 opacity: 1
@@ -174,7 +183,7 @@ GridView {
             Button {
                 id: loginbutton
                 x: 20
-                y: 142
+                y: 166
                 width: 280
                 height: 34
                 text: qsTr("ログイン")
@@ -261,7 +270,7 @@ GridView {
             }
 
             Text {
-                id: text3
+                id: date_text
                 x: 649
                 y: -12
                 width: 90
@@ -273,7 +282,7 @@ GridView {
             }
 
             Text {
-                id: text4
+                id: clock_text
                 x: 738
                 y: -12
                 width: 50
@@ -285,7 +294,7 @@ GridView {
             }
 
             Text {
-                id: text5
+                id: hostnametext
                 x: 500
                 y: -12
                 width: 150
@@ -300,12 +309,12 @@ GridView {
                 id: powerflow
                 x: -12
                 y: -12
-                width: 130
-                height: 28
+                width: 260
+                height: 56
                 Button{
 
                     width:powerflow.width / 16 * 4
-                    height: 28
+                    height: 56
                     font.pixelSize: 20
                     icon.color: "transparent"
                     icon.source:"icons/power_settings_new-24px.svg"
@@ -321,7 +330,7 @@ GridView {
                 Button{
                     x: 35
                     width:powerflow.width / 16 * 4
-                    height: 28
+                    height: 56
                     font.pixelSize: 20
                     icon.color: "transparent"
                     icon.source:"icons/restart_alt-24px.svg"
@@ -335,7 +344,7 @@ GridView {
                 }
                 Button{
                     width:powerflow.width / 16 * 4
-                    height: 28
+                    height: 56
                     font.pixelSize: 20
                     icon.color: "transparent"
                     icon.source:"icons/mode_night-24px.svg"
@@ -349,7 +358,7 @@ GridView {
                 }
                 Button{
                     width:powerflow.width / 16 * 4
-                    height: 28
+                    height: 56
                     font.pixelSize: 20
                     icon.color: "transparent"
                     icon.source:"icons/airline_seat_flat-24px.svg"
@@ -399,3 +408,9 @@ GridView {
 
 
 
+
+/*##^##
+Designer {
+    D{i:0;formeditorZoom:1.75}
+}
+##^##*/
