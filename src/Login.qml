@@ -57,6 +57,16 @@ GridView {
                     rectangle.y=offsetY;
 
                 }
+            BusyIndicator{
+                id:busyindi
+                objectName: "BusyIndic"
+                width:rectangle.width * 1.5
+                height: rectangle.width * 1.5
+                x:rectangle.width / 2 - width /2
+                y:rectangle.height / 2 - height / 2
+                running:false
+            }
+
             Text {
                 id: text6
                 x: 81
@@ -198,50 +208,11 @@ GridView {
                 enabled: true
                 font.pointSize: 14
                 onClicked: {
+                    busyindi.running=true
                     loginbutton_clicked(passwordField.text);
                 }
 
 
-                ProgressBar {
-                    id: progressBar2
-                    x: 0
-                    y: 0
-                    width: 280
-                    height: 4
-                    value: 0.5
-                    rotation: 0
-                }
-
-                ProgressBar {
-                    id: progressBar1
-                    x: 261
-                    y: 15
-                    width: 34
-                    height: 4
-                    rotation: 90
-                    value: 0.5
-                }
-
-
-                ProgressBar {
-                    id: progressBar3
-                    x: 0
-                    y: 30
-                    width: 280
-                    height: 4
-                    value: 0.5
-                    rotation: 180
-                }
-
-                ProgressBar {
-                    id: progressBar4
-                    x: -15
-                    y: 15
-                    width: 34
-                    height: 4
-                    value: 0.5
-                    rotation: 270
-                }
             }
 
 
@@ -429,6 +400,6 @@ GridView {
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;height:480;width:640}
+    D{i:0;autoSize:true;formeditorZoom:1.3300000429153442;height:480;width:640}
 }
 ##^##*/

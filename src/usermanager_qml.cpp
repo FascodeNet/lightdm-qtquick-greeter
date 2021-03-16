@@ -61,6 +61,8 @@ void usermanager_qml::error_password(){
     QObject* rootobj=engine->rootObjects().first();
     QObject* labelkun=rootobj->findChild<QObject*>("failedTextObj");
     labelkun->setProperty("text","Missing Password!");
+    QObject* busyindi=rootobj->findChild<QObject*>("BusyIndic");
+    busyindi->setProperty("running",false);
     erasebutton_clicked();
 
 }
