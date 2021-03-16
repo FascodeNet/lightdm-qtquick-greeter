@@ -299,9 +299,8 @@ GridView {
                 y: -12
                 width: 150
                 height: 28
-                text: qsTr("hostname")
+                text: HostName
                 font.pixelSize: 16
-                horizontalAlignment: Text.AlignRight
                 minimumPixelSize: 24
             }
 
@@ -411,6 +410,6 @@ GridView {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.75}
+    D{i:0;formeditorZoom:1.100000023841858}
 }
 ##^##*/

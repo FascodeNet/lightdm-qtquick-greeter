@@ -44,27 +44,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="302"/>
-        <source>hostname</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="Login.qml" line="324"/>
+        <location filename="Login.qml" line="323"/>
         <source>Power Off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="340"/>
+        <location filename="Login.qml" line="339"/>
         <source>Restart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="354"/>
+        <location filename="Login.qml" line="353"/>
         <source>Sleep</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="368"/>
+        <location filename="Login.qml" line="367"/>
         <source>Hibernate</source>
         <translation type="unfinished"></translation>
     </message>

@@ -12,6 +12,7 @@
 #include <iostream>
 #include <QApplication>
 #include "settingsmanager.h"
+#include <unistd.h>
 int main(int argc, char *argv[])
 {
     QLoggingCategory::defaultCategory()->setEnabled(QtDebugMsg, true);
@@ -107,6 +108,9 @@ int main(int argc, char *argv[])
 
     // load
     engine.rootContext()->setContextProperty("theme_path",qml_kun);
+    char hostname[334];
+    gethostname(hostname,sizeof(hostname));
+    engine.rootContext()->setContextProperty("HostName",QString(hostname) + " ");
     engine.load(url);
     QObject *root = engine.rootObjects().first();
     QObject::connect(root,SIGNAL(username_selected(QString)),&qml_usermanager,SLOT(changed_username_combo(QString)));
