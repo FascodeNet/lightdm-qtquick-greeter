@@ -1,5 +1,5 @@
 # lightdm-qtquick-greeter
-A Greeter for LighDM with switchable themes written in Qt for Alter Linux and Serene Linux
+A Greeter for LightDM with switchable themes written in QtQuick for Alter Linux and Serene Linux
 
 # Usage
 
@@ -12,14 +12,23 @@ Install package `lightdm-qtquick-greeter-git` from AUR
 yay -S lightdm-qtquick-greeter-git
 ```
 
+### Fedora
+#### Make dependencies
+
+- lightdm-qt-devel
+- cmake
+- ninja-build
+
 ## other distro
 
 ### Make dependencies
+
 Install folllowing packages
 
  - liblightdm-qt
  - cmake
  - ninja
+
 
 ## Build and Install
 
