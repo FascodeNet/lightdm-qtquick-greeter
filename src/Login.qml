@@ -1,17 +1,17 @@
 import QtQuick 2.4
 
-import QtQuick.Controls 2.1
-import QtQuick.Controls.Material 2.1
+import QtQuick.Controls 2.15
+import QtQuick.Controls.Material 2.15
+ import QtQuick.Layouts 1.15
 GridView {
     id: themeView
-    width:800
-    height:450
+    /**/
     function erase_passwd(){
 
     }
     function change_clock(){
         date_text.text=new Date().toLocaleDateString(Qt.locale(),"yyyy/MM/dd");
-        clock_text.text=new Date().toLocaleTimeString(Qt.locale(),"hh:mm");
+        clock_text.text=new Date().toLocaleTimeString(Qt.locale(),"hh:mm  ");
     }
 
     /*onLayerChanged: {
@@ -27,31 +27,36 @@ GridView {
         id: borderImage
         x: 0
         y: 0
-        width: 800
+        width: top_panel.width
         height: 450
         source: "qrc:/qtquickplugin/images/template_image.png"
     }
 
-    Image {
-        id: kage1
-        x: 238
-        y: 123
-        width: 324
-        height: 254
-        horizontalAlignment: Image.AlignLeft
-        source: "icons/名称未asasasassasasas設定.png"
-        sourceSize.width: 324
-        fillMode: Image.Stretch
-
         Rectangle {
             id: rectangle
-            x: 2
-            y: 2
-            width: 320
-            height: 250
+            x: 258
+            y: 102
+            width: 307
+            height: 233
             color: "#ffffff"
             radius: 15
+            Component.onCompleted:{
+                    var maxX=Screen_width - rectangle.width;
+                    var maxY=Screen_height - rectangle.height;
+                    function getOffset(offsetpct,maxVal,defaultVal){
+                        var offset = defaultVal > maxVal ? maxVal : defaultVal;
+                        if(offsetpct > 100) offsetpct=100;
+                        offset=(maxVal * offsetpct)/100;
+                        return offset;
+                    }
+                    var defaultX=10*maxX/100;
+                    var defaultY=50*maxY/100;
+                    var offsetX=getOffset(50,maxX,defaultX);
+                    var offsetY=getOffset(50,maxY,defaultY);
+                    rectangle.x=offsetX;
+                    rectangle.y=offsetY;
 
+                }
             Text {
                 id: text6
                 x: 81
@@ -241,82 +246,30 @@ GridView {
 
 
         }
-    }
 
-    Image {
-        id: kage
-        x: 0
-        y: 0
-        width: 800
-        height: 34
-        source: "qrc:/qtquickplugin/images/template_image.png"
-        fillMode: Image.PreserveAspectFit
 
-        Pane {
-            id: pane
+        ToolBar {
+            id: top_panel
             x: 0
             y: 0
-            width: 800
-            height: 28
+            width: Screen_width
+            height: 56
 
-            Image {
-                id: image2
-                x: -12
-                y: -12
-                width: 800
-                height: 28
-                source: "qrc:/qtquickplugin/images/template_image.png"
-                fillMode: Image.PreserveAspectFit
-            }
+            RowLayout {
+                anchors.fill: parent
 
-            Text {
-                id: date_text
-                x: 649
-                y: -12
-                width: 90
-                height: 28
-                text: qsTr("0000/00/00")
-                font.pixelSize: 16
-                horizontalAlignment: Text.AlignHCenter
-                minimumPixelSize: 24
-            }
-
-            Text {
-                id: clock_text
-                x: 738
-                y: -12
-                width: 50
-                height: 28
-                text: qsTr("00:00")
-                font.pixelSize: 16
-                horizontalAlignment: Text.AlignHCenter
-                minimumPixelSize: 24
-            }
-
-            Text {
-                id: hostnametext
-                x: 500
-                y: -12
-                width: 150
-                height: 28
-                text: HostName
-                font.pixelSize: 16
-                minimumPixelSize: 24
-            }
 
             Flow {
                 id: powerflow
-                x: -12
-                y: -12
                 width: 260
                 height: 56
                 Button{
 
                     width:powerflow.width / 16 * 4
-                    height: 56
+                    height: powerflow.height
                     font.pixelSize: 20
                     icon.color: "transparent"
-                    icon.source:"icons/power_settings_new-24px.svg"
+                    icon.source:"qrc:/icons/power_settings_new-24px.svg"
                     hoverEnabled: true
                     ToolTip.timeout: 5000
                     ToolTip.visible: hovered
@@ -329,10 +282,10 @@ GridView {
                 Button{
                     x: 35
                     width:powerflow.width / 16 * 4
-                    height: 56
+                    height: powerflow.height
                     font.pixelSize: 20
                     icon.color: "transparent"
-                    icon.source:"icons/restart_alt-24px.svg"
+                    icon.source:"qrc:/icons/restart_alt-24px.svg"
                     hoverEnabled: true
                     ToolTip.timeout: 5000
                     ToolTip.visible: hovered
@@ -343,10 +296,10 @@ GridView {
                 }
                 Button{
                     width:powerflow.width / 16 * 4
-                    height: 56
+                    height: powerflow.height
                     font.pixelSize: 20
                     icon.color: "transparent"
-                    icon.source:"icons/mode_night-24px.svg"
+                    icon.source:"qrc:/icons/mode_night-24px.svg"
                     hoverEnabled: true
                     ToolTip.timeout: 5000
                     ToolTip.visible: hovered
@@ -357,10 +310,10 @@ GridView {
                 }
                 Button{
                     width:powerflow.width / 16 * 4
-                    height: 56
+                    height: powerflow.height
                     font.pixelSize: 20
                     icon.color: "transparent"
-                    icon.source:"icons/airline_seat_flat-24px.svg"
+                    icon.source:"qrc:/icons/airline_seat_flat-24px.svg"
                     hoverEnabled: true
                     ToolTip.timeout: 5000
                     ToolTip.visible: hovered
@@ -372,7 +325,55 @@ GridView {
             }
 
 
-        }
+            Image {
+                id: image2
+                Layout.fillWidth: true
+                height: top_panel.height
+                horizontalAlignment: Qt.AlignHCenter
+                verticalAlignment: Qt.AlignVCenter
+                source: "qrc:/qtquickplugin/images/template_image.png"
+                fillMode: Image.PreserveAspectFit
+                Image {
+                    id: name
+                    height: top_panel.height
+                    width: top_panel.height
+                    horizontalAlignment: Qt.AlignHCenter
+                    verticalAlignment: Qt.AlignVCenter
+                    fillMode: Image.PreserveAspectFit
+                    source: "qrc:/icons/serene.svg"
+                }
+            }
+            Text {
+                id: hostnametext
+                width: 120
+                height: top_panel.height
+                text: HostName
+                font.pixelSize: 16
+                minimumPixelSize: 24
+            }
+
+            Text {
+                id: date_text
+                width: 100
+                height: top_panel.height
+                text: qsTr("0000/00/00   ")
+                font.pixelSize: 16
+                minimumPixelSize: 24
+            }
+
+            Text {
+                id: clock_text
+                width: 50
+                height: top_panel.height
+                text: qsTr("00:00  ")
+                font.pixelSize: 16
+                horizontalAlignment: Text.AlignHCenter
+                minimumPixelSize: 24
+            }
+
+}
+
+
     }
 
     Image {
@@ -410,6 +411,6 @@ GridView {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:1.100000023841858}
+    D{i:0;autoSize:true;formeditorZoom:0.8999999761581421;height:480;width:640}
 }
 ##^##*/

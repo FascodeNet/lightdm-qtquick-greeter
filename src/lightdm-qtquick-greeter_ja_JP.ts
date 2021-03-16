@@ -4,7 +4,7 @@
 <context>
     <name>Login</name>
     <message>
-        <location filename="Login.qml" line="62"/>
+        <location filename="Login.qml" line="67"/>
         <source>errorテキスト</source>
         <translation type="unfinished"></translation>
     </message>
@@ -14,53 +14,55 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="105"/>
+        <location filename="Login.qml" line="110"/>
         <source>Session</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="139"/>
+        <location filename="Login.qml" line="144"/>
         <source>UserName</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="166"/>
+        <location filename="Login.qml" line="171"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="189"/>
+        <location filename="Login.qml" line="194"/>
         <source>ログイン</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="278"/>
-        <source>0000/00/00</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="Login.qml" line="290"/>
-        <source>00:00</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="Login.qml" line="323"/>
+        <location filename="Login.qml" line="276"/>
         <source>Power Off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="339"/>
+        <location filename="Login.qml" line="292"/>
         <source>Restart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="353"/>
+        <location filename="Login.qml" line="306"/>
         <source>Sleep</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="367"/>
+        <location filename="Login.qml" line="320"/>
         <source>Hibernate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Login.qml" line="359"/>
+        <source>0000/00/00   </source>
+        <oldsource>0000/00/00</oldsource>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Login.qml" line="368"/>
+        <source>00:00  </source>
+        <oldsource>00:00</oldsource>
         <translation type="unfinished"></translation>
     </message>
 </context>
