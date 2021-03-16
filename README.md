@@ -15,9 +15,11 @@ yay -S lightdm-qtquick-greeter-git
 ### Fedora
 #### Make dependencies
 
-- lightdm-qt-devel
+- lightdm-qt5-devel
 - cmake
 - ninja-build
+- qt5-qtquickcontrols2-devel
+
 
 ## other distro
 
