@@ -10,7 +10,7 @@ GridView {
 
     }
     function change_clock(){
-        date_text.text=new Date().toLocaleDateString(Qt.locale(),"yyyy/MM/dd");
+        date_text.text=new Date().toLocaleDateString(Qt.locale(),"yyyy/MM/dd  ");
         clock_text.text=new Date().toLocaleTimeString(Qt.locale(),"hh:mm  ");
     }
 
@@ -253,7 +253,7 @@ GridView {
             x: 0
             y: 0
             width: Screen_width
-            height: 56
+            height: 36
             Material.primary: Material.Grey
 
             RowLayout {
@@ -262,90 +262,108 @@ GridView {
 
             Flow {
                 id: powerflow
-                height: 56
-                width: height * 4
-                Button{
+                height: 36
+                width: 32 / 3 * 16
+                Image{
+                    width:powerflow.width / 16 * 1
+                    height: powerflow.height / 16 *3
+                }
 
-                    width:powerflow.width / 16 * 4
-                    height: powerflow.height
-                    font.pixelSize: 20
-                    background: rgba(0,0,0,1)
-                    icon.color: "transparent"
-                    icon.source:"qrc:/icons/system-shutdown.png"
-                    icon.width: powerflow.height
-                    icon.height: powerflow.height
-                    hoverEnabled: true
-                    ToolTip.timeout: 5000
-                    ToolTip.visible: hovered
-                    ToolTip.text: qsTr("Power Off")
-                    onClicked: {
-                        shutdown();
-                    }
+                Image{
 
-                }
-                Button{
-                    x: 35
-                    width:powerflow.width / 16 * 4
-                    height: powerflow.height
-                    font.pixelSize: 20
-                    background: rgba(0,0,0,1)
-                    icon.color: "transparent"
-                    icon.source:"qrc:/icons/system-restart.png"
-                    icon.width: powerflow.height
-                    icon.height: powerflow.height
-                    hoverEnabled: true
+                    width:powerflow.width / 16 * 3
+                    height: powerflow.width / 16 * 3
+                    source:"qrc:/icons/system-shutdown.png"
+
                     ToolTip.timeout: 5000
-                    ToolTip.visible: hovered
-                    ToolTip.text: qsTr("Restart")
-                    onClicked: {
-                        reboot();
+                    property string toolTipText: qsTr("Power Off")
+                    ToolTip.text: toolTipText
+                    ToolTip.visible: toolTipText ? pwrarea.containsMouse : false
+                    MouseArea{
+                        id:pwrarea
+                        hoverEnabled: true
+                        anchors.fill: parent
+                        onClicked: {
+                            shutdown();
+                        }
                     }
                 }
-                Button{
-                    width:powerflow.width / 16 * 4
-                    height: powerflow.height
-                    background: rgba(0,0,0,1)
-                    font.pixelSize: 20
-                    icon.color: "transparent"
-                    icon.source:"qrc:/icons/system-suspend.png"
-                    icon.width: powerflow.height
-                    icon.height: powerflow.height
-                    hoverEnabled: true
+                Image{
+                    width:powerflow.width / 16 * 1
+                    height: powerflow.height / 16 *3
+                }
+
+                Image {
+
+                    width:powerflow.width / 16 * 3
+                    height: powerflow.width / 16 * 3
+                    source:"qrc:/icons/system-restart.png"
                     ToolTip.timeout: 5000
-                    ToolTip.visible: hovered
-                    ToolTip.text: qsTr("Sleep")
-                    onClicked: {
-                        suspend();
+                    property string toolTipText: qsTr("Restart")
+                    ToolTip.text: toolTipText
+                    ToolTip.visible: toolTipText ? restartarea.containsMouse : false
+                    MouseArea{
+                        id:restartarea
+                         anchors.fill: parent
+                        hoverEnabled: true
+                        onClicked: {
+                            reboot();
+                        }
                     }
                 }
-                Button{
-                    width:powerflow.width / 16 * 4
-                    height: powerflow.height
-                    font.pixelSize: 20
-                    icon.color: "transparent"
-                    icon.source:"qrc:/icons/system-suspend-hibernate.png"
-                    icon.width: powerflow.height
-                    icon.height: powerflow.height
-                    background: rgba(0,0,0,1)
-                    hoverEnabled: true
+                Image{
+                    width:powerflow.width / 16 * 1
+                    height: powerflow.height / 16 *3
+                }
+                Image{
+                    width:powerflow.width / 16 * 3
+                    height: powerflow.width / 16 * 3
+                    source:"qrc:/icons/system-suspend.png"
                     ToolTip.timeout: 5000
-                    ToolTip.visible: hovered
-                    ToolTip.text: qsTr("Hibernate")
-                    onClicked: {
-                        hibernate();
+                    property string toolTipText: qsTr("Sleep")
+                    ToolTip.text: toolTipText
+                    ToolTip.visible: toolTipText ? sleeparea.containsMouse : false
+                    MouseArea{
+                        id:sleeparea
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        onClicked: {
+                           suspend();
+                        }
+                    }
+                }
+                Image{
+                    width:powerflow.width / 16 * 1
+                    height: powerflow.height / 16 *3
+                }
+                Image{
+                    width:powerflow.width / 16 * 3
+                    height: powerflow.width / 16 * 3
+                    source:"qrc:/icons/system-suspend-hibernate.png"
+                    ToolTip.timeout: 5000
+                    property string toolTipText: qsTr("Hibernate")
+                    ToolTip.text: toolTipText
+                    ToolTip.visible: toolTipText ? hiberarea.containsMouse : false
+                    MouseArea{
+                        id:hiberarea
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        onClicked: {
+                            hibernate();
+                        }
                     }
                 }
             }
 
 
-            Image {
-                id: image2
-                Layout.fillWidth: true
-                height: top_panel.height
+            Label {
+                id:clock_text
+                text: "00:00  "
+                elide: Label.ElideRight
                 horizontalAlignment: Qt.AlignHCenter
                 verticalAlignment: Qt.AlignVCenter
-                source: "qrc:/qtquickplugin/images/template_image.png"
-                fillMode: Image.PreserveAspectFit
+                font.pointSize: 13
+                Layout.fillWidth: true
             }
             Text {
                 id: hostnametext
@@ -360,20 +378,11 @@ GridView {
                 id: date_text
                 width: 100
                 height: top_panel.height
-                text: qsTr("0000/00/00   ")
+                text: qsTr("0000/00/00  ")
                 font.pixelSize: 16
                 minimumPixelSize: 24
             }
 
-            Text {
-                id: clock_text
-                width: 50
-                height: top_panel.height
-                text: qsTr("00:00  ")
-                font.pixelSize: 16
-                horizontalAlignment: Text.AlignHCenter
-                minimumPixelSize: 24
-            }
 
 }
 
