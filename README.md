@@ -19,6 +19,22 @@ yay -S lightdm-qtquick-greeter-git
 - cmake
 - ninja-build
 - qt5-qtquickcontrols2-devel
+Build lightdm-qtquick-greeter from this repository.
+
+```bash
+git clone https://github.com/FascodeNet/lightdm-qtquick-greeter.git
+cd lightdm-qtquick-greeter
+if [[ -d build ]] ; then
+    rm -rf build
+fi
+mkdir build
+cd build
+cmake -GNinja ..
+ninja -j8
+cpack -G RPM CPackConfig.cmake
+sudo dnf install *.rpm
+
+```
 
 
 ## other distro
