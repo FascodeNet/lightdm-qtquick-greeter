@@ -34,33 +34,33 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="276"/>
+        <location filename="Login.qml" line="280"/>
         <source>Power Off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="292"/>
+        <location filename="Login.qml" line="299"/>
         <source>Restart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="306"/>
+        <location filename="Login.qml" line="316"/>
         <source>Sleep</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="320"/>
+        <location filename="Login.qml" line="333"/>
         <source>Hibernate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="350"/>
+        <location filename="Login.qml" line="363"/>
         <source>0000/00/00   </source>
         <oldsource>0000/00/00</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="359"/>
+        <location filename="Login.qml" line="372"/>
         <source>00:00  </source>
         <oldsource>00:00</oldsource>
         <translation type="unfinished"></translation>

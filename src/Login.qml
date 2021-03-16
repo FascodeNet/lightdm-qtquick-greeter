@@ -254,6 +254,7 @@ GridView {
             y: 0
             width: Screen_width
             height: 56
+            Material.primary: Material.Grey
 
             RowLayout {
                 anchors.fill: parent
@@ -261,15 +262,18 @@ GridView {
 
             Flow {
                 id: powerflow
-                width: 260
                 height: 56
+                width: height * 4
                 Button{
 
                     width:powerflow.width / 16 * 4
                     height: powerflow.height
                     font.pixelSize: 20
+                    background: rgba(0,0,0,1)
                     icon.color: "transparent"
-                    icon.source:"qrc:/icons/power_settings_new-24px.svg"
+                    icon.source:"qrc:/icons/system-shutdown.png"
+                    icon.width: powerflow.height
+                    icon.height: powerflow.height
                     hoverEnabled: true
                     ToolTip.timeout: 5000
                     ToolTip.visible: hovered
@@ -284,8 +288,11 @@ GridView {
                     width:powerflow.width / 16 * 4
                     height: powerflow.height
                     font.pixelSize: 20
+                    background: rgba(0,0,0,1)
                     icon.color: "transparent"
-                    icon.source:"qrc:/icons/restart_alt-24px.svg"
+                    icon.source:"qrc:/icons/system-restart.png"
+                    icon.width: powerflow.height
+                    icon.height: powerflow.height
                     hoverEnabled: true
                     ToolTip.timeout: 5000
                     ToolTip.visible: hovered
@@ -297,9 +304,12 @@ GridView {
                 Button{
                     width:powerflow.width / 16 * 4
                     height: powerflow.height
+                    background: rgba(0,0,0,1)
                     font.pixelSize: 20
                     icon.color: "transparent"
-                    icon.source:"qrc:/icons/mode_night-24px.svg"
+                    icon.source:"qrc:/icons/system-suspend.png"
+                    icon.width: powerflow.height
+                    icon.height: powerflow.height
                     hoverEnabled: true
                     ToolTip.timeout: 5000
                     ToolTip.visible: hovered
@@ -313,7 +323,10 @@ GridView {
                     height: powerflow.height
                     font.pixelSize: 20
                     icon.color: "transparent"
-                    icon.source:"qrc:/icons/airline_seat_flat-24px.svg"
+                    icon.source:"qrc:/icons/system-suspend-hibernate.png"
+                    icon.width: powerflow.height
+                    icon.height: powerflow.height
+                    background: rgba(0,0,0,1)
                     hoverEnabled: true
                     ToolTip.timeout: 5000
                     ToolTip.visible: hovered
