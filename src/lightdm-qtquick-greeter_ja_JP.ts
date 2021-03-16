@@ -54,13 +54,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="359"/>
+        <location filename="Login.qml" line="350"/>
         <source>0000/00/00   </source>
         <oldsource>0000/00/00</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="368"/>
+        <location filename="Login.qml" line="359"/>
         <source>00:00  </source>
         <oldsource>00:00</oldsource>
         <translation type="unfinished"></translation>

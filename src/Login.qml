@@ -333,15 +333,6 @@ GridView {
                 verticalAlignment: Qt.AlignVCenter
                 source: "qrc:/qtquickplugin/images/template_image.png"
                 fillMode: Image.PreserveAspectFit
-                Image {
-                    id: name
-                    height: top_panel.height
-                    width: top_panel.height
-                    horizontalAlignment: Qt.AlignHCenter
-                    verticalAlignment: Qt.AlignVCenter
-                    fillMode: Image.PreserveAspectFit
-                    source: "qrc:/icons/serene.svg"
-                }
             }
             Text {
                 id: hostnametext
@@ -377,12 +368,17 @@ GridView {
     }
 
     Image {
-        id: usericonimage1
+        id: sereneLogo
         x: 8
         y: 382
         width: 180
         height: 60
-        source: UserIconSrc
+        source: "qrc:/icons/serene.svg"
+        asynchronous: false
+        mirror: false
+        mipmap: false
+        cache: false
+        smooth: false
         fillMode: Image.PreserveAspectFit
     }
 
@@ -411,6 +407,6 @@ GridView {
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;formeditorZoom:0.8999999761581421;height:480;width:640}
+    D{i:0;autoSize:true;height:480;width:640}
 }
 ##^##*/
