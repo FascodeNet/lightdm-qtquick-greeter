@@ -14,9 +14,6 @@ GridView {
         clock_text.text=new Date().toLocaleTimeString(Qt.locale(),"hh:mm  ");
     }
 
-    /*onLayerChanged: {
-        passwordField.focus();
-    }*/
 
     Timer {
         interval: 100; running: true; repeat: true;
@@ -164,9 +161,9 @@ GridView {
                 id: passwordField
                 objectName: "passwordField_obj"
                 x: 20
-                y: 120
+                y: 115
                 width: 280
-                height: 40
+                height: 45
                 opacity: 1
                 text: ""
                 scale: 1
@@ -183,16 +180,6 @@ GridView {
                 onAccepted: loginbutton_clicked(text);
                 enabled: true
 
-                color: "#00000000"
-
-                ProgressBar {
-                    id: progressBar
-                    x: 0
-                    y: 36
-                    width: 280
-                    height: 4
-                    value: 0.5
-                }
             }
 
             Button {
@@ -400,6 +387,6 @@ GridView {
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;formeditorZoom:1.3300000429153442;height:480;width:640}
+    D{i:0;autoSize:true;formeditorZoom:1.25;height:480;width:640}
 }
 ##^##*/

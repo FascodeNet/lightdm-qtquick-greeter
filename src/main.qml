@@ -23,6 +23,7 @@ ApplicationWindow {
     signal reboot();
     signal hibernate();
     signal suspend();
+    signal loaded();
     signal set_background(string value);
     signal cursor_move_center(var width,var height);
     Image {
@@ -33,7 +34,7 @@ ApplicationWindow {
         var component = Qt.createComponent(theme_path);
         var greeter_obj=component.createObject(greeter)
         cursor_move_center(Screen_width,Screen_height);
-
+        loaded();
     }
 }
 

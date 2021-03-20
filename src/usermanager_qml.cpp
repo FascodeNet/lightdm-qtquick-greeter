@@ -83,6 +83,12 @@ void usermanager_qml::enable_password_text(){
     QObject* passwordkun=rootobj->findChild<QObject*>("passwordField_obj");
     passwordkun->setProperty("enabled",true);
 }
+void usermanager_qml::loaded(){
+
+    QObject* rootobj=engine->rootObjects().first();
+    QObject* passwordkun=rootobj->findChild<QObject*>("passwordField_obj");
+    passwordkun->setProperty("focus",true);
+}
 void usermanager_qml::sleep(){
     m_pwr.suspend();
 }

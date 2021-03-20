@@ -41,6 +41,7 @@ public slots:
     void reboot();
     void hibernate();
     void sleep();
+    void loaded();
     void set_background(QString src);
     void cursor_move_center(QVariant x,QVariant y);
 };
