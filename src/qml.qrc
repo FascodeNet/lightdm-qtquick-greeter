@@ -2,15 +2,11 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>Login.qml</file>
-        <file>icons/bitmap.png</file>
-        <file>icons/kage.svg</file>
-        <file>icons/kage1.svg</file>
-        <file>icons/描asasasas画asas-1.svg</file>
-        <file>icons/serene.svg</file>
         <file>icons/system-log-out.png</file>
         <file>icons/system-restart.png</file>
         <file>icons/system-shutdown.png</file>
         <file>icons/system-suspend-hibernate.png</file>
         <file>icons/system-suspend.png</file>
+        <file>icons/SereneBeta8_Logo_Dark-vector.svg</file>
     </qresource>
 </RCC>
