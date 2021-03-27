@@ -1,10 +1,12 @@
 cmake_minimum_required(VERSION 3.14)
 project(lightdm-qtquick-greeter LANGUAGES CXX)
 add_subdirectory(src)
-
-INSTALL(TARGETS lightdm-qtquick-greeter RUNTIME DESTINATION /usr/bin)
-INSTALL(FILES misc/lightdm-qtquick-greeter.desktop DESTINATION /usr/share/xgreeters/ PERMISSIONS OWNER_READ GROUP_READ WORLD_READ)
-INSTALL(FILES misc/lightdm-qtquick-greeter.json DESTINATION /etc/lightdm/ PERMISSIONS OWNER_READ GROUP_READ WORLD_READ)
+if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+  set(CMAKE_INSTALL_PREFIX "" CACHE PATH "..." FORCE)
+endif()
+INSTALL(TARGETS lightdm-qtquick-greeter RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/usr/bin)
+INSTALL(FILES misc/lightdm-qtquick-greeter.desktop DESTINATION ${CMAKE_INSTALL_PREFIX}/usr/share/xgreeters/ PERMISSIONS OWNER_READ GROUP_READ WORLD_READ)
+INSTALL(FILES misc/lightdm-qtquick-greeter.json DESTINATION ${CMAKE_INSTALL_PREFIX}/etc/lightdm/ PERMISSIONS OWNER_READ GROUP_READ WORLD_READ)
 include (InstallRequiredSystemLibraries)
 set (CPACK_RESOURCE_FILE_LICENSE
      "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
