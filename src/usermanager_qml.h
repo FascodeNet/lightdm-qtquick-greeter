@@ -11,11 +11,12 @@
 #include <QLightDM/Power>
 #include <QProcess>
 #include <QString>
+#include "defaultsessionmanager.h"
 class usermanager_qml : public QObject
 {
     Q_OBJECT
 public:
-    explicit usermanager_qml(QLightDM::Greeter* greeter,QLightDM::SessionsModel* sessions,QLightDM::UsersModel* usersmodel,QString* src_usericon,QQmlApplicationEngine* enginekun,QObject *parent = nullptr);
+    explicit usermanager_qml(QLightDM::Greeter* greeter,QLightDM::SessionsModel* sessions,QLightDM::UsersModel* usersmodel,QString* src_usericon,QQmlApplicationEngine* enginekun,defaultsessionmanager* m,QObject *parent = nullptr);
 private:
     QLightDM::UsersModel* m_usersmodel;
     QLightDM::Greeter* m_greeter;
@@ -25,6 +26,7 @@ private:
     QString current_session;
     QString current_username;
     QLightDM::PowerInterface m_pwr;
+    defaultsessionmanager* mankun;
 signals:
     void changed_userimage(QString src);
 public slots:

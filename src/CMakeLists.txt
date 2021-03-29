@@ -39,6 +39,8 @@ set(SOURCESKUN
     main.cpp
     settingsmanager.cpp
     settingsmanager.h
+    defaultsessionmanager.cpp
+    defaultsessionmanager.h
     main.qml
     Login.qml)
 add_executable(lightdm-qtquick-greeter

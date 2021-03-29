@@ -1,6 +1,6 @@
 #include "usermanager_qml.h"
 #include <iostream>
-usermanager_qml::usermanager_qml(QLightDM::Greeter* greeter,QLightDM::SessionsModel* sessions,QLightDM::UsersModel* usersmodel,QString* src_usericon,QQmlApplicationEngine* enginekun,QObject *parent) :
+usermanager_qml::usermanager_qml(QLightDM::Greeter* greeter,QLightDM::SessionsModel* sessions,QLightDM::UsersModel* usersmodel,QString* src_usericon,QQmlApplicationEngine* enginekun,defaultsessionmanager* m,QObject *parent) :
     QObject(parent)
 {
     m_usersmodel=usersmodel;
@@ -8,6 +8,7 @@ usermanager_qml::usermanager_qml(QLightDM::Greeter* greeter,QLightDM::SessionsMo
     m_greeter = greeter;
     m_sessions=sessions;
     engine=enginekun;
+    mankun=m;
     connect(m_greeter,SIGNAL(authenticationComplete()),this,SLOT(authenticationComplete()));
 }
 void usermanager_qml::changed_session_combo(QString index2){
@@ -35,6 +36,8 @@ void usermanager_qml::changed_username_combo(QString index2){
 }
 void usermanager_qml::loginbutton_clicked(QString text){
     //std::cout << "clicked " << text.toStdString() << std::endl;
+    mankun->defaultprofile=current_session;
+    mankun->save("/etc/lightdm/lightdm-qtquick-greeter_select.json");
     m_greeter->respond(text.trimmed());
     disable_password_text();
     erasebutton_clicked();

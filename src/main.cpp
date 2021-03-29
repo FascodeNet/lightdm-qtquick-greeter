@@ -12,6 +12,7 @@
 #include <iostream>
 #include <QApplication>
 #include "settingsmanager.h"
+#include "defaultsessionmanager.h"
 #include <unistd.h>
 int main(int argc, char *argv[])
 {
@@ -33,6 +34,10 @@ int main(int argc, char *argv[])
     SettingsManager settingm;
     if(QFile::exists(parser.value(setting_option))){
         settingm.load(parser.value(setting_option));
+    }
+    defaultsessionmanager manager;
+    if(QFile::exists("/etc/lightdm/lightdm-qtquick-greeter_select.json")){
+        manager.load("/etc/lightdm/lightdm-qtquick-greeter_select.json");
     }
     QString qml_kun = settingm.theme_qml_path;
     QString lang_path = settingm.qm_file.replace("%lang%",QLocale::system().name());
@@ -61,16 +66,24 @@ int main(int argc, char *argv[])
     QLightDM::SessionsModel m_SessionModel;
     QStringList sessions_str;
     QString init_session;
+
+    bool noset_filekun=true;
     for(int i=0; i< m_SessionModel.rowCount(QModelIndex());i++){
+        if(m_SessionModel.data(m_SessionModel.index(i,0),QLightDM::SessionsModel::KeyRole).toString() ==manager.defaultprofile ){
+            std::cout << "selected default!!" << std::endl;
+            init_session=manager.defaultprofile;
+            noset_filekun=false;
+        }
         sessions_str << m_SessionModel.data(m_SessionModel.index(i,0),QLightDM::SessionsModel::KeyRole).toString();
     }
-    init_session=sessions_str.at(0);
+    if(noset_filekun) init_session=sessions_str.at(0);
     engine.rootContext()->setContextProperty("sessionModel",sessions_str);
 
 
     bool hideuser=settingm.hideuser;
     QLightDM::UsersModel usersModel;
     QString init_user;
+
     if(hideuser == true){
         if (! m_Greeter.hideUsersHint()) {
             QStringList knownUsers;
@@ -94,7 +107,7 @@ int main(int argc, char *argv[])
     QString src_usericon=init_user;
     engine.rootContext()->setContextProperty("UserIconSrc",src_usericon);
     engine.rootContext()->setContextProperty("UserName",init_user);
-    usermanager_qml qml_usermanager(&m_Greeter,&m_SessionModel,&usersModel,&src_usericon,&engine);
+    usermanager_qml qml_usermanager(&m_Greeter,&m_SessionModel,&usersModel,&src_usericon,&engine,&manager);
     qml_usermanager.changed_username_combo(init_user);
     qml_usermanager.changed_session_combo(init_session);
 
