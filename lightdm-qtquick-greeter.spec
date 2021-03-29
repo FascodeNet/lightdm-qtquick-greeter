@@ -2,9 +2,9 @@ Name:		lightdm-qtquick-greeter
 	
 Summary:	Lightdm Greeter based qtquick
 	
-Version:	0.0.0.1
+Version:	0.0.0.2
 	
-Release:	2%{?dist}
+Release:	1%{?dist}
 
 License:	MIT
 	
