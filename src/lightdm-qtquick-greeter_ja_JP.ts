@@ -4,7 +4,7 @@
 <context>
     <name>Login</name>
     <message>
-        <location filename="Login.qml" line="74"/>
+        <location filename="Login.qml" line="121"/>
         <source>errorテキスト</source>
         <translation type="unfinished"></translation>
     </message>
@@ -14,47 +14,47 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="117"/>
+        <location filename="Login.qml" line="154"/>
         <source>Session</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="151"/>
+        <location filename="Login.qml" line="178"/>
         <source>UserName</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="178"/>
+        <location filename="Login.qml" line="205"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="191"/>
+        <location filename="Login.qml" line="218"/>
         <source>ログイン</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="237"/>
+        <location filename="Login.qml" line="262"/>
         <source>Power Off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="260"/>
+        <location filename="Login.qml" line="285"/>
         <source>Restart</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="281"/>
+        <location filename="Login.qml" line="306"/>
         <source>Sleep</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="302"/>
+        <location filename="Login.qml" line="327"/>
         <source>Hibernate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Login.qml" line="339"/>
+        <location filename="Login.qml" line="367"/>
         <source>0000/00/00  </source>
         <oldsource>0000/00/00   </oldsource>
         <translation type="unfinished"></translation>

@@ -3,6 +3,7 @@ import QtQuick 2.4
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
  import QtQuick.Layouts 1.15
+import QtGraphicalEffects 1.0
 GridView {
     id: themeView
     /**/
@@ -14,7 +15,53 @@ GridView {
         clock_text.text=new Date().toLocaleTimeString(Qt.locale(),"hh:mm  ");
     }
 
+    Image {
+        id: sereneLogo
+        x: 8
+        y: 382
+        width: 180
+        height: 60
+        source: "qrc:/icons/serene.svg"
+        asynchronous: false
+        mirror: false
+        mipmap: false
+        cache: false
+        smooth: false
+        fillMode: Image.PreserveAspectFit
+    }
 
+    MaskedBlur {
+        anchors.fill: sereneLogo
+        source: sereneLogo
+        radius: 8
+        samples: 16
+        maskSource: mask
+    }
+
+
+    Item {
+        anchors.fill: sereneLogo
+        opacity: 0.75
+        Item {
+            id: mask
+            anchors.fill: parent
+            z: 1
+
+            Rectangle {
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.right: parent.right
+                height: sereneLogo.headerItem.height
+            }
+
+            Rectangle {
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
+                height: sereneLogo.footerItem.height
+            }
+        }
+    }
     Timer {
         interval: 100; running: true; repeat: true;
         onTriggered: change_clock();
@@ -29,14 +76,14 @@ GridView {
         source: "qrc:/qtquickplugin/images/template_image.png"
     }
 
-        Rectangle {
-            id: rectangle
-            x: 258
-            y: 102
-            width: 307
-            height: 233
-            color: "#ffffff"
-            radius: 15
+    Rectangle {
+        id: rectangle
+        x: 258
+        y: 42
+        width: 335
+        height: 293
+        color: "#ffffff"
+        radius: 15
             Component.onCompleted:{
                     var maxX=Screen_width - rectangle.width;
                     var maxY=Screen_height - rectangle.height;
@@ -66,8 +113,8 @@ GridView {
 
             Text {
                 id: text6
-                x: 81
-                y: 206
+                x: 88
+                y: 267
                 width: 170
                 height: 18
                 color: "#8b0000"
@@ -81,8 +128,8 @@ GridView {
 
             Image {
                 id: usericonimage
-                x: 20
-                y: 20
+                x: 25
+                y: 50
                 width: 70
                 height: 70
                 source: UserIconSrc
@@ -92,26 +139,16 @@ GridView {
             ComboBox {
                 id: sessionComboBox
                 model:sessionModel
-                x: 104
-                y: 85
+                x: 111
+                y: 110
                 width: 196
-                height: 29
+                height: 38
                 onCurrentValueChanged: session_selected(currentValue);
-
-                Image {
-                    id: image1
-                    x: 163
-                    y: -1
-                    width: 28
-                    height: 28
-                    source: "qrc:/qtquickplugin/images/template_image.png"
-                    fillMode: Image.PreserveAspectFit
-                }
 
                 Text {
                     id: text2
                     x: 0
-                    y: -31
+                    y: -25
                     width: 150
                     height: 29
                     text: qsTr("Session")
@@ -125,27 +162,17 @@ GridView {
 
             ComboBox {
                 id: usercomboBox
-                x: 104
-                y: 23
+                x: 112
+                y: 43
                 width: 196
-                height: 29
+                height: 38
                 model:UserModels
                 onCurrentValueChanged: username_selected(currentValue)
-
-                Image {
-                    id: image
-                    x: 163
-                    y: 1
-                    width: 28
-                    height: 28
-                    source: "qrc:/qtquickplugin/images/template_image.png"
-                    fillMode: Image.PreserveAspectFit
-                }
 
                 Text {
                     id: text1
                     x: 0
-                    y: -27
+                    y: -24
                     width: 90
                     height: 29
                     text: qsTr("UserName")
@@ -160,8 +187,8 @@ GridView {
             TextField {
                 id: passwordField
                 objectName: "passwordField_obj"
-                x: 20
-                y: 115
+                x: 28
+                y: 172
                 width: 280
                 height: 45
                 opacity: 1
@@ -184,10 +211,10 @@ GridView {
 
             Button {
                 id: loginbutton
-                x: 20
-                y: 166
+                x: 28
+                y: 224
                 width: 280
-                height: 34
+                height: 38
                 text: qsTr("ログイン")
                 font.italic: false
                 font.bold: false
@@ -205,19 +232,17 @@ GridView {
 
         }
 
-
         ToolBar {
             id: top_panel
             x: 0
             y: 0
             width: Screen_width
             height: 36
-            Material.primary: Material.Grey
 
+            Material.primary: "#6E6E6E"
             RowLayout {
+
                 anchors.fill: parent
-
-
             Flow {
                 id: powerflow
                 height: 36
@@ -317,6 +342,7 @@ GridView {
             Label {
                 id:clock_text
                 text: "00:00  "
+                color: "#ffffff"
                 elide: Label.ElideRight
                 horizontalAlignment: Qt.AlignHCenter
                 verticalAlignment: Qt.AlignVCenter
@@ -325,6 +351,7 @@ GridView {
             }
             Text {
                 id: hostnametext
+                color: "#ffffff"
                 width: 120
                 height: top_panel.height
                 text: HostName
@@ -335,6 +362,7 @@ GridView {
             Text {
                 id: date_text
                 width: 100
+                color: "#ffffff"
                 height: top_panel.height
                 text: qsTr("0000/00/00  ")
                 font.pixelSize: 16
@@ -347,20 +375,6 @@ GridView {
 
     }
 
-    Image {
-        id: sereneLogo
-        x: 8
-        y: 382
-        width: 180
-        height: 60
-        source: "qrc:/icons/serene.svg"
-        asynchronous: false
-        mirror: false
-        mipmap: false
-        cache: false
-        smooth: false
-        fillMode: Image.PreserveAspectFit
-    }
 
 
 
@@ -387,6 +401,6 @@ GridView {
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;formeditorZoom:1.25;height:480;width:640}
+    D{i:0;autoSize:true;height:480;width:640}
 }
 ##^##*/
