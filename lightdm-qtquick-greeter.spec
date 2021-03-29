@@ -2,7 +2,7 @@ Name:		lightdm-qtquick-greeter
 	
 Summary:	Lightdm Greeter based qtquick
 	
-Version:	0.0.0.3
+Version:	0.0.0.4
 	
 Release:	1%{?dist}
 
