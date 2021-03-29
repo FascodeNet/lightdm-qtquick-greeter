@@ -4,7 +4,7 @@ Summary:	Lightdm Greeter based qtquick
 	
 Version:	0.0.0.1
 	
-Release:	1%{?dist}
+Release:	2%{?dist}
 
 License:	MIT
 	
@@ -36,6 +36,6 @@ ninja install
 %files
 /usr/bin/lightdm-qtquick-greeter
 /usr/share/xgreeters/lightdm-qtquick-greeter.desktop
-/etc/lightdm/lightdm-qtquick-greeter.json
+%config /etc/lightdm/lightdm-qtquick-greeter.json
 
 %changelog
