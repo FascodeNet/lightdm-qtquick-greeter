@@ -115,10 +115,11 @@ GridView {
                 id: text6
                 x: 88
                 y: 267
+                objectName: "failedTextObj"
                 width: 170
                 height: 18
                 color: "#8b0000"
-                text: qsTr("errorテキスト")
+                text: ""
                 font.pixelSize: 12
                 horizontalAlignment: Text.AlignHCenter
                 font.bold: false
