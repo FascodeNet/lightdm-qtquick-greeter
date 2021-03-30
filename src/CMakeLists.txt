@@ -21,8 +21,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #    endif()
 #endif()
 
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick  LinguistTools QuickControls2 Widgets REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick  LinguistTools QuickControls2 Widgets REQUIRED)
+find_package(Qt5 COMPONENTS Core Quick  LinguistTools QuickControls2 Widgets REQUIRED)
 
 set(TS_FILES lightdm-qtquick-greeter_ja_JP.ts)
 include(FindPkgConfig)
@@ -54,5 +53,5 @@ qt5_add_translation(_qmFiles ${TS_FILES})
 target_compile_definitions(lightdm-qtquick-greeter
  PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 target_link_libraries(lightdm-qtquick-greeter
-  PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick Qt${QT_VERSION_MAJOR}::QuickControls2 Qt${QT_VERSION_MAJOR}::Widgets ${LIGHTDM_QT_LIBRARIES} )
+  PRIVATE Qt5::Core Qt5::Quick Qt5::QuickControls2 Qt5::Widgets ${LIGHTDM_QT_LIBRARIES} )
 qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
