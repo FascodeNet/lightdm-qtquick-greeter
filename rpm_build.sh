@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 spectool -g *spec
-fedpkg --release f35 mockbuild --mock-config fedora-35-x86_64
+fedpkg --release f36 mockbuild --mock-config fedora-36-x86_64
