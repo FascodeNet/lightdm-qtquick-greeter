@@ -1,0 +1,12 @@
+on:
+  push:
+    branches:
+      - f36
+    tags:
+      - tag
+jobs:
+  fedora-job:
+    runs-on: ubuntu-latest
+    container: fedora:36
+    steps:
+      - run: cat /etc/os-release
