@@ -7,23 +7,20 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: fedora:36
-      options: --cap-add=SYS_ADMIN
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
         run: |
-          sudo dnf -y update
-          sudo dnf -y install \
-            rpmdevtools \
-            mock fedpkg
+          sudo apt -y update
+          sudo apt -y install \
+            rpm
       - name: Download Source
         run: |
           spectool -g *.spec
-      - name: Build RPMS
-        run: |
-          sudo fedpkg --release f36 mockbuild
+      - uses: kahenteikou/docker-mock-rpmbuilder@v1.1-p1
+        env:
+          SPEC_FILE: lightdm-qtquick-greeter.spec
+          MOCK_CONFIG: fedora-36-x86_64
       - name: LS
         run: |
           ls -la 
