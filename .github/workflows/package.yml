@@ -5,8 +5,22 @@ on:
     tags:
       - tag
 jobs:
-  fedora-job:
+  build:
     runs-on: ubuntu-latest
     container: fedora:36
     steps:
-      - run: cat /etc/os-release
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          sudo dnf update
+          sudo dnf -y install \
+            spectool rpmdevtools \
+            mock fedpkg
+      - name: Download Source
+        run: |
+          spectool -g *.spec
+      - name: ls
+        run: |
+          ls -la
+      
+      
