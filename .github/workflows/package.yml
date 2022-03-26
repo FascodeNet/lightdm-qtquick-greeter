@@ -19,8 +19,11 @@ jobs:
       - name: Download Source
         run: |
           spectool -g *.spec
-      - name: ls
+      - name: Build RPMS
         run: |
-          ls -la
+          sudo fedpkg --release f36 mockbuild
+      - name: LS
+        run: |
+          ls -la 
       
       
