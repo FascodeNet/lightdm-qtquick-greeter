@@ -10,6 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: kahenteikou/docker-mock-rpmbuilder@v1.1-p2
+        options: --cap-add=SYS_ADMIN
         env:
           SPEC_FILE: lightdm-qtquick-greeter.spec
           MOCK_CONFIG: fedora-36-x86_64
