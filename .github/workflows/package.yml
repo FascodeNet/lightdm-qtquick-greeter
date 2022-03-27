@@ -26,6 +26,6 @@ jobs:
           sudo fedpkg --release f36 mockbuild
       - name: LS
         run: |
-          ls -la 
+          ls -la results_lightdm-qtquick-greeter
       
       
